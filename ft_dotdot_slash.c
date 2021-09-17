@@ -6,13 +6,13 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 16:16:27 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/15 14:43:04 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/17 17:03:23 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "includes/to_ish.h"
 
-static int	ft_calculate_path(char *str, t_mini *data, int count)
+static int	ft_calculate_path(char *str, t_to_ish *data, int count)
 {
 	while (str[data->ii] != '\0')
 	{
@@ -38,7 +38,7 @@ static int	ft_calculate_path(char *str, t_mini *data, int count)
 	return (-1);
 }
 
-int	ft_dotdot_slash(char **array, t_mini *data, char *current)
+int	ft_dotdot_slash(char **array, t_to_ish *data, char *current)
 {
 	int		ret;
 	char	*temp2;

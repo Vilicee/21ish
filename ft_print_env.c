@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_env.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 15:57:47 by wvaara            #+#    #+#             */
-/*   Updated: 2021/08/24 17:47:24 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/17 17:09:08 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "includes/to_ish.h"
 
 void	ft_print_env(int i, char **variables)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_is_quote.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 13:44:34 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/07 10:47:00 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/17 17:08:20 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "includes/to_ish.h"
 
 int	ft_is_quote(char c)
 {

@@ -6,11 +6,11 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 18:06:59 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/15 15:09:39 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/17 17:10:19 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "includes/to_ish.h"
 
 static int	ft_verify_data(char **array, int i)
 {
@@ -39,7 +39,7 @@ static int	ft_verify_data(char **array, int i)
 	return (0);
 }
 
-static void	ft_add_variables(t_mini *data, char *new_var, char *value)
+static void	ft_add_variables(t_to_ish *data, char *new_var, char *value)
 {
 	char	**temp;
 	char	*word;
@@ -55,7 +55,7 @@ static void	ft_add_variables(t_mini *data, char *new_var, char *value)
 	ft_free_array(temp);
 }
 
-static void	ft_mod_variable(int ret, char *type, char *value, t_mini *data)
+static void	ft_mod_variable(int ret, char *type, char *value, t_to_ish *data)
 {
 	char	*word;
 
@@ -83,7 +83,7 @@ static char	*ft_remove_quotes(char *str)
 	return (NULL);
 }
 
-void	ft_setenv(char *str, t_mini *data, int overwrite)
+void	ft_setenv(char *str, t_to_ish *data, int overwrite)
 {
 	data->ret = 0;
 	data->temp = ft_command_parser(str, 0, 0);

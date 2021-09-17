@@ -6,13 +6,13 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 14:40:54 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 16:14:49 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/17 17:10:48 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "includes/to_ish.h"
 
-static void	ft_reset_variables(t_mini *data)
+static void	ft_reset_variables(t_to_ish *data)
 {
 	data->quote = ' ';
 	data->exec_fail = '0';
@@ -53,7 +53,7 @@ static int	ft_check_for_errors(char *buf)
 		}
 		if (buf[i] == ';' && buf[i + 1] == ';')
 		{
-			ft_putstr("minishell: parse error near `;;'\n");
+			ft_putstr("21ish: parse error near `;;'\n");
 			return (-1);
 		}
 		i++;
@@ -61,7 +61,7 @@ static int	ft_check_for_errors(char *buf)
 	return (0);
 }
 
-static char	**ft_parser(t_mini *data)
+static char	**ft_parser(t_to_ish *data)
 {
 	char	**ret;
 	char	*temp;
@@ -97,7 +97,7 @@ static int	ft_not_empty(char *str)
 	return (1);
 }
 
-int	ft_shell(t_mini *data)
+int	ft_shell(t_to_ish *data)
 {
 	if (ft_check_for_errors(data->buf) == -1)
 		return (-1);

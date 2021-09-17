@@ -6,11 +6,11 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 17:32:25 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/01 17:54:33 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/17 17:02:44 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "includes/to_ish.h"
 
 char	**ft_copy_env(void)
 {

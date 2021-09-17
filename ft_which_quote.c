@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_which_quote.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 13:24:50 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/08 15:33:42 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/17 17:11:35 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "includes/to_ish.h"
 
 int	ft_which_quote(char *str, int squote, int dquote, int bquote)
 {

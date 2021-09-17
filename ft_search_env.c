@@ -6,11 +6,11 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 15:55:47 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/01 18:17:05 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/17 17:09:53 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "includes/to_ish.h"
 
 static int	ft_which_env(char *variable, char *word)
 {

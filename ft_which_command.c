@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_which_command.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 15:48:48 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/08 16:51:03 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/17 17:11:27 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "includes/to_ish.h"
 
 static void	ft_free(char *temp, char *word)
 {
@@ -20,7 +20,7 @@ static void	ft_free(char *temp, char *word)
 		free(word);
 }
 
-int	ft_which_command(char *str, t_mini *data, char *word, char *temp)
+int	ft_which_command(char *str, t_to_ish *data, char *word, char *temp)
 {
 	temp = ft_strtrim(str);
 	if (ft_is_quote(temp[0]) == 1)

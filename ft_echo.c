@@ -6,11 +6,11 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 11:25:37 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/16 14:14:37 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/17 17:04:13 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "includes/to_ish.h"
 
 static int	ft_no_quote(char *str, int i, char quote, char **variables)
 {
@@ -46,7 +46,7 @@ static void	ft_print_echo(char *str, int i, char quote, char **variables)
 	}
 }
 
-void	ft_echo(char *str, t_mini *data)
+void	ft_echo(char *str, t_to_ish *data)
 {
 	char	*temp;
 	int		i;

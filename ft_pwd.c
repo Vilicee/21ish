@@ -6,11 +6,11 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 16:04:51 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/15 14:18:45 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/17 17:09:14 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "includes/to_ish.h"
 
 void	ft_pwd(char *str, char **variables)
 {

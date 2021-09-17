@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_unsetenv.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 12:20:41 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/10 11:31:56 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/17 17:11:13 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "includes/to_ish.h"
 
 static char	**ft_remove_var(char **array, int position, int len)
 {
@@ -36,7 +36,7 @@ static char	**ft_remove_var(char **array, int position, int len)
 	return (temp);
 }
 
-static void	ft_remove_env(int i, t_mini *data, char *var)
+static void	ft_remove_env(int i, t_to_ish *data, char *var)
 {
 	int		len;
 	char	*word;
@@ -51,7 +51,7 @@ static void	ft_remove_env(int i, t_mini *data, char *var)
 	free(word);
 }
 
-void	ft_unsetenv(char *str, t_mini *data, int ret)
+void	ft_unsetenv(char *str, t_to_ish *data, int ret)
 {
 	char	**temp;
 	char	*temp2;

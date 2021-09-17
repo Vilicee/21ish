@@ -6,13 +6,13 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 10:57:37 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/15 14:59:46 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/17 17:08:49 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "includes/to_ish.h"
 
-static int	ft_else(char **array, t_mini *data, char tilde, int ret)
+static int	ft_else(char **array, t_to_ish *data, char tilde, int ret)
 {
 	data->env = ft_extract_env_value(data->variables, "PWD");
 	if (data->env)
@@ -41,7 +41,7 @@ static int	ft_else(char **array, t_mini *data, char tilde, int ret)
 	return (ret);
 }
 
-int	ft_new_dir(char **array, t_mini *data)
+int	ft_new_dir(char **array, t_to_ish *data)
 {
 	char		tilde;
 

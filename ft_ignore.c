@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ignore.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 12:22:54 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/08 12:23:12 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/17 17:07:45 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "includes/to_ish.h"
 
 void	ft_ignore(int signo)
 {
 	if (signo == SIGINT)
-		ft_putstr("\nminishell> ");
+		ft_putstr("\21ish> ");
 }

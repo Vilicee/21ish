@@ -6,13 +6,13 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/04 15:59:48 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/15 15:46:07 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/17 17:00:15 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "includes/to_ish.h"
 
-static void	ft_initialize(t_mini *data)
+static void	ft_initialize(t_to_ish *data)
 {
 	data->buf = NULL;
 	data->temp = NULL;
@@ -41,7 +41,7 @@ static void	ft_initialize(t_mini *data)
 	data->array = NULL;
 }
 
-static void	ft_reset(t_mini *data)
+static void	ft_reset(t_to_ish *data)
 {
 	data->temp = NULL;
 	data->new_word = NULL;
@@ -67,7 +67,7 @@ static void	ft_reset(t_mini *data)
 	data->quote = ' ';
 }
 
-static void	ft_parse_input(t_mini *data)
+static void	ft_parse_input(t_to_ish *data)
 {
 	if (data->buf)
 		free(data->buf);
@@ -77,7 +77,7 @@ static void	ft_parse_input(t_mini *data)
 		data->buf = ft_save_input();
 }
 
-static void	ft_check_input(t_mini *data)
+static void	ft_check_input(t_to_ish *data)
 {
 	char	*temp;
 
@@ -101,13 +101,13 @@ static void	ft_check_input(t_mini *data)
 
 int	main(void)
 {
-	t_mini	data;
+	t_to_ish	data;
 
 	data.variables = ft_copy_env();
 	ft_initialize(&data);
 	while (1)
 	{
-		ft_putstr("minishell> ");
+		ft_putstr("21ish> ");
 		signal(SIGINT, ft_ignore);
 		ft_parse_input(&data);
 		if (data.buf != NULL)

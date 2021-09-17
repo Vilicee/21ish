@@ -6,11 +6,11 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/25 16:37:42 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/04 13:40:21 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/17 17:11:44 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "includes/to_ish.h"
 
 static int	ft_no_quotes(char *str, int i)
 {

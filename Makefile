@@ -6,11 +6,11 @@
 #    By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/06 13:58:33 by wvaara            #+#    #+#              #
-#    Updated: 2021/09/16 16:21:12 by wvaara           ###   ########.fr        #
+#    Updated: 2021/09/17 17:27:50 by wvaara           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = minishell
+NAME = 21ish
 
 FLAGS = -Wall -Wextra -Werror
 
@@ -29,7 +29,7 @@ OBJECTS = $(SRCS:.c=.o)
 
 INCLUDES = includes/
 
-LIBRARIES = libft/libft.a libft/libftprintf.a
+LIBRARIES = libft/libft.a libft/libftprintf.a libft/libftdprintf.a
 
 LIB_DIR = libft
 

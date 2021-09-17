@@ -6,11 +6,11 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 13:29:39 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/16 14:13:23 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/17 17:01:53 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "includes/to_ish.h"
 
 static int	ft_find_start(char *str)
 {
