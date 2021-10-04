@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_save_input.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
+/*   By: ehelmine <ehelmine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 11:55:59 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:09:46 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/04 18:23:57 by ehelmine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,21 @@ static char	*ft_read_input(int ret, char *buf, char *str)
 		free(temp);
 	return (str);
 }
+
+/*
+** Called from: ft_parse_input (from main)
+** BUFF_SIZE is set to 256 (maybe stupid QUESTION why?)
+** We read to buf from standard input. If buf[0] == '\0' it means we didnt
+** get anything (eof?) and we return NULL.
+** We read BUFF_SIZE amount of input to char buf[]. We put terminating
+** null character to buf[] and check if second to last character is
+** newline or not. If yes, we ft_strdup the input (QUESTION why? we could
+** just return char buf? or is it hard because it is char[] not char *)
+** and return the string (CHANGE we could just return (ft_strdup(buf));
+** and get rid of char *str).
+** If the second last character is not newline, we read more input in
+** ft_read_input (above) and return that.
+*/
 
 char	*ft_save_input(void)
 {

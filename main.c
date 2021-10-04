@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
+/*   By: ehelmine <ehelmine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/04 15:59:48 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:00:15 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/04 18:25:04 by ehelmine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,15 @@ static void	ft_reset(t_to_ish *data)
 	data->quote = ' ';
 }
 
+/*
+** Called from: main
+** We check if data->buf is pointing somewhere, if yes, then free
+** CHANGE maybe we should put it to point to null (ft_memdel?)
+** We check if data->variables exist (CHANGE data->variables could be named
+** env_variables?) and if they are not, we set data->buf NULL
+** If data->variables exist, we get content to data->buf from ft_save_input.
+*/
+
 static void	ft_parse_input(t_to_ish *data)
 {
 	if (data->buf)
@@ -76,6 +85,20 @@ static void	ft_parse_input(t_to_ish *data)
 	else
 		data->buf = ft_save_input();
 }
+
+/*
+** Called from: main
+** We have our input and we check if we have matching number of quotes 
+** in ft_check_quotation. 
+**	If it returns -1: there is not matching number,
+** 		so we strdup our input to temp, we free data->buf, we go read until
+** 		we get matching quote and new input is in temp now. We duplicate it to
+** 		data->buf again, and then we free temp (CHANGE all frees -> memdel?)
+** 		if stdup in the beginning didn't happen, we exit -1. If after checking
+** 		for the matching quote we didn't get anything to data->buf (or malloc
+** 		failed) we exit -1 too.
+** If it returns 1: we just go back to main
+*/
 
 static void	ft_check_input(t_to_ish *data)
 {
@@ -98,6 +121,23 @@ static void	ft_check_input(t_to_ish *data)
 			exit (-1);
 	}
 }
+
+/*
+** 1. First we get environment variables in ft_copy_env
+** 2. We initialize our t_to_ish data struct variables in ft_initialize
+** 3. Enter while loop CHANGE (putstr -> write call) and write to output 21sh>
+** 4. Check if we get SIGINT (ctrl+c), and if yes, we go to ft_ignore
+** 5. We parse input in ft_parse_input (CHANGE could be ft_get_input or
+** ft_read_input, we are not really parsing anything yet, just reading it in)
+** 6. Check what we have in data.buf and if it is not null:
+** 		6.1. We check input in ft_check_input (CHANGE some other name,
+ 		because now this function only checks for matching quotes and nothing
+		else, so more detailed name would be good)
+**		6.2. We check what ft_check_buf returns, and if return value is 0
+**			6.2.1 We call ft_shell
+** 7. If data.buf was null in 6., we do else-condition: write one newline 
+** 8. We go back to 3. and go around again.
+*/
 
 int	main(void)
 {
