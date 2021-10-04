@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_buf.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
+/*   By: ehelmine <ehelmine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 11:49:48 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:01:04 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/04 18:46:32 by ehelmine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,29 +101,53 @@ static int	ft_only_special_chars(char *str)
 	return (-1);
 }
 
+/*
+** CHANGE ft_only_new_line and ft_empty could be in the same line (if either
+** returns -1 then return (-1))
+** CHANGE quote checking could be done like thaaat ofc no need to save lines
+** but why not? :) also there wouldn't be need to get int ret as parameter in.
+** ofc the matter of having things nicely separately and not in long if
+** conditions is nice i guess
+**
+** We check if data->buf (here named str) contains any weird characters.
+** If it contains only those kinds of things (only new line, it is empty,
+** it has only pair of quotes or only special chars) we return -1 and do
+** other things which are necessary for that kind of input. Last check is
+** done in ft_dotdot which im not yet sure what kind of len thing it returns
+** ELLA CHECK FOR CURIOUSITY REASONS :D
+*/
+
 int	ft_check_buf(char *str, int ret, int len)
 {
-	if (ft_only_new_line(str) == -1)
+/*	if (ft_only_new_line(str) == -1)
 		return (-1);
 	if (ft_empty(str, 0, -1) == -1)
+		return (-1);*/
+	if (ft_only_new_line(str) == -1 || ft_empty(str, 0, -1) == -1)
 		return (-1);
 	len = ft_strlen(str);
 	if (len == 1)
 		return (-1);
 	if (len == 3)
 	{
-		if (str[0] == DQUOTE && str[1] == DQUOTE)
+/*		if (str[0] == DQUOTE && str[1] == DQUOTE)
 			ret = -1;
 		if (str[0] == SQU0TE && str[1] == SQU0TE)
 			ret = -1;
 		if (str[0] == BQUOTE && str[1] == BQUOTE)
-			ret = -1;
+			ret = -1;*/
+		if ((str[0] == DQUOTE && str[1] == DQUOTE) || (str[0] == SQU0TE
+			&& str[1] == SQU0TE) || (str[0] == BQUOTE && str[1] == BQUOTE))
+		{
+			write(1, "21ish: permission denied:\n", 26);
+			return (-1);
+		}
 	}
-	if (ret == -1)
+/*	if (ret == -1)
 	{
 		ft_putstr("21ish: permission denied:\n");
 		return (ret);
-	}
+	}*/
 	if (ft_only_special_chars(str) == -1)
 		return (-1);
 	len = ft_dotdot(str, 0, 0);
