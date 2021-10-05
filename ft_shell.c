@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_shell.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
+/*   By: ehelmine <ehelmine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 14:40:54 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:10:48 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 16:27:10 by ehelmine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@ static void	ft_reset_variables(t_to_ish *data)
 	data->cd_array = NULL;
 	data->cd_temp = NULL;
 }
+
+/*
+** 
+**
+*/
 
 static int	ft_check_for_errors(char *buf)
 {
@@ -96,6 +101,16 @@ static int	ft_not_empty(char *str)
 	}
 	return (1);
 }
+
+/*
+**
+** Called from: main
+**
+**
+**
+**
+**
+*/
 
 int	ft_shell(t_to_ish *data)
 {

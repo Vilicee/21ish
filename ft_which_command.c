@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_which_command.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
+/*   By: ehelmine <ehelmine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 15:48:48 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:11:27 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/21 17:54:15 by ehelmine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,11 @@ int	ft_which_command(char *str, t_to_ish *data, char *word, char *temp)
 		data->quote = temp[0];
 	if (temp)
 		word = ft_get_next_command(temp, 0, data->quote, data);
+	ft_printf("word: %s str: |%s| temp: |%s|\n", word, str, temp);
 	if (ft_strcmp(word, "exit") == 0)
 		exit (1);
 	if (ft_strcmp(word, "echo") == 0)
 		ft_echo(temp, data);
-	else if (ft_strcmp(word, "pwd") == 0 || ft_strcmp(word, "PWD") == 0)
-		ft_pwd(word, data->variables);
 	else if (ft_strcmp(word, "env") == 0)
 		ft_print_array(data->variables);
 	else if (ft_strcmp(word, "setenv") == 0)

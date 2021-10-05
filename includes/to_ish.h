@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   to_ish.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
+/*   By: ehelmine <ehelmine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/04 16:11:33 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:36:36 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 11:38:37 by ehelmine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int				ft_which_quote(char *str, int squote, int dquote,
 					int bquote);
 int				ft_dotdot(char *str, int i, int count);
 int				ft_dash_check(char *str);
-int				ft_check_buf(char *str, int ret, int len);
+int				ft_check_buf(char *str, int len);
 int				ft_check_semic(char *str, int i, int ret);
 int				ft_search_env(char *temp, int i, char **variables);
 int				ft_write(char *str, int i, char quote);
@@ -98,5 +98,8 @@ void			ft_echo(char *str, t_to_ish *data);
 void			ft_setenv(char *str, t_to_ish *data, int overwrite);
 void			ft_unsetenv(char *str, t_to_ish *data, int ret);
 void			ft_command_not_found(char *command, t_to_ish *data);
+
+int				ft_execute_with_pipes(char **array, char *org_str, char **var, pid_t child);
+
 
 #endif

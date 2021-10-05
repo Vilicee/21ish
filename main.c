@@ -6,7 +6,7 @@
 /*   By: ehelmine <ehelmine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/04 15:59:48 by wvaara            #+#    #+#             */
-/*   Updated: 2021/10/04 18:25:04 by ehelmine         ###   ########.fr       */
+/*   Updated: 2021/10/05 11:38:31 by ehelmine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,7 +153,7 @@ int	main(void)
 		if (data.buf != NULL)
 		{
 			ft_check_input(&data);
-			if (ft_check_buf(data.buf, 0, 0) == 0)
+			if (ft_check_buf(data.buf, 0) == 0)
 				ft_shell(&data);
 		}
 		else
