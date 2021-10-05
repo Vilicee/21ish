@@ -6,15 +6,15 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 14:56:51 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:37:50 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/16 14:46:47 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "includes/minishell.h"
 
-static int	ft_dot_or_dotdot(char **arr, t_to_ish *data, char *current, int ret)
+static int	ft_dot_or_dotdot(char **array, t_mini *data, char *current, int ret)
 {
-	ret = ft_check_dot(arr[1]);
+	ret = ft_check_dot(array[1]);
 	if (ret == 1)
 		return (1);
 	if (ret == 2)
@@ -37,11 +37,11 @@ static int	ft_dot_or_dotdot(char **arr, t_to_ish *data, char *current, int ret)
 		}
 	}
 	if (ret == 3)
-		return (ft_dotdot_slash(arr, data, current));
+		return (ft_dotdot_slash(array, data, current));
 	return (-1);
 }
 
-static int	ft_home(t_to_ish *data, char *current)
+static int	ft_home(t_mini *data, char *current)
 {
 	data->old = ft_strjoin("setenv OLDPWD ", current);
 	data->check = ft_extract_env_value(data->variables, "HOME");
@@ -54,7 +54,7 @@ static int	ft_home(t_to_ish *data, char *current)
 	return (chdir(data->check));
 }
 
-static int	ft_prev_dir(char **array, t_to_ish *data, char *current)
+static int	ft_prev_dir(char **array, t_mini *data, char *current)
 {
 	int	ret;
 
@@ -83,7 +83,7 @@ static int	ft_prev_dir(char **array, t_to_ish *data, char *current)
 	return (-1);
 }
 
-void	ft_cd(char *str, t_to_ish *data, int ret)
+void	ft_cd(char *str, t_mini *data, int ret)
 {
 	char	local_curr[4096];
 

@@ -6,11 +6,11 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 13:16:38 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:03:54 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/22 13:53:39 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "includes/minishell.h"
 
 static int	ft_almost_white_space(char c)
 {
@@ -19,26 +19,36 @@ static int	ft_almost_white_space(char c)
 	return (0);
 }
 
-static int	ft_skip_flag(char *str)
+static int	ft_skip_flag(char *str, int i, int ii, int count)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '-')
+	while (str[i])
 	{
-		i++;
-		if (str[i] == '-')
+		if (str[i] == '-' && str[i + 1] == 'n')
 		{
 			i++;
 			while (str[i] == 'n')
 				i++;
+			if (ft_isspace(str[i]) == 1 || str[i] == '\0')
+				count++;
+		}
+		if (ft_isspace(str[i]) == 0 && str[i] != 'n')
 			break ;
+		i++;
+	}
+	while (count > 0 && str[ii++])
+	{
+		if (str[ii] == '-')
+		{
+			ii++;
+			while (str[ii] == 'n')
+				ii++;
+			count--;
 		}
 	}
-	return (i);
+	return (ii);
 }
 
-static int	ft_echo_len(char *str, int i, int flag, t_to_ish *data)
+static int	ft_echo_len(char *str, int i, int flag, t_mini *data)
 {
 	int	len;
 	int	arg;
@@ -46,7 +56,7 @@ static int	ft_echo_len(char *str, int i, int flag, t_to_ish *data)
 	len = 0;
 	arg = 0;
 	if (flag == 1)
-		i = ft_skip_flag(str);
+		i = ft_skip_flag(str, ft_find_echo_start(str), 0, 0);
 	while (str[i])
 	{
 		if ((ft_almost_white_space(str[i]) == 1) && arg == 0)
@@ -63,7 +73,7 @@ static int	ft_echo_len(char *str, int i, int flag, t_to_ish *data)
 	return (len);
 }
 
-static void	ft_echo_parser_loop(t_to_ish *dt, char *str, char c, char *temp)
+static void	ft_echo_parser_loop(t_mini *dt, char *str, char c, char *temp)
 {
 	while (str[dt->e_i])
 	{
@@ -92,10 +102,12 @@ static void	ft_echo_parser_loop(t_to_ish *dt, char *str, char c, char *temp)
 	temp[dt->index] = '\0';
 }
 
-char	*ft_echo_parser(char *str, int i, int len, t_to_ish *data)
+char	*ft_echo_parser(char *str, int i, int len, t_mini *data)
 {
 	char	*temp;
-
+	
+	if (str[i - 5] == ' ')
+		i++;
 	len = ft_echo_len(str, i, data->flag, data);
 	temp = (char *)malloc(sizeof(char) * (len + 1));
 	if (temp)

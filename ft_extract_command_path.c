@@ -6,15 +6,15 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 14:12:05 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:37:19 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/29 13:41:20 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "includes/minishell.h"
 
-char	*ft_verify_rights(struct stat *buf, t_to_ish *data, char *com)
+char	*ft_verify_rights(struct stat *buf, t_mini *data, char *com)
 {
-	if (buf->st_mode & S_IXUSR)
+	if (buf->st_mode & S_IXUSR && S_ISREG(buf->st_mode))
 		return (ft_strdup(com));
 	else
 	{
@@ -24,9 +24,9 @@ char	*ft_verify_rights(struct stat *buf, t_to_ish *data, char *com)
 	return (NULL);
 }
 
-char	*ft_verify(char **array, struct stat *buf, char *path, t_to_ish *data)
+char	*ft_verify(char **array, struct stat *buf, char *path, t_mini *data)
 {
-	ft_free_array(array);
+	ft_free_array(&array);
 	if (buf->st_mode & S_IXUSR)
 		return (path);
 	else
@@ -38,7 +38,7 @@ char	*ft_verify(char **array, struct stat *buf, char *path, t_to_ish *data)
 	return (NULL);
 }
 
-char	*ft_extract_command_path(char **var, char *wrd, char *com, t_to_ish *dt)
+char	*ft_extract_command_path(char **vars, char *word, char *com, t_mini *dt)
 {
 	char		*path;
 	char		**array;
@@ -46,7 +46,7 @@ char	*ft_extract_command_path(char **var, char *wrd, char *com, t_to_ish *dt)
 
 	if (lstat(com, &buf) == 0)
 		return (ft_verify_rights(&buf, dt, com));
-	path = ft_extract_env_value(var, wrd);
+	path = ft_extract_env_value(vars, word);
 	if (path)
 	{
 		array = ft_strsplit(path, ':');
@@ -60,7 +60,7 @@ char	*ft_extract_command_path(char **var, char *wrd, char *com, t_to_ish *dt)
 				if (lstat(path, &buf) == 0)
 					return (ft_verify(array, &buf, path, dt));
 			}
-			ft_free_array(array);
+			ft_free_array(&array);
 		}
 		free(path);
 	}

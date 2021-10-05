@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strequ.c                                        :+:      :+:    :+:   */
+/*   ft_find_echo_start.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/22 13:23:39 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/21 16:26:07 by wvaara           ###   ########.fr       */
+/*   Created: 2021/09/22 13:43:01 by wvaara            #+#    #+#             */
+/*   Updated: 2021/09/22 13:43:35 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strequ(char const *s1, char const *s2)
+#include "includes/minishell.h"
+
+int	ft_find_echo_start(char *str)
 {
 	int	i;
 
-	i = 0;
-	if (!s1 || !s2)
-		return (-1);
-	while ((unsigned char)s1[i] != '\0' && (unsigned char)s2[i] != '\0')
+	i = 4;
+	if (ft_is_quote(str[0]) == 1)
+		i = 6;
+	while (str[i])
 	{
-		if ((unsigned char)s1[i] == (unsigned char)s2[i])
-			i++;
-		else
-			return (0);
+		if (ft_isspace(str[i]) == 0)
+			return (i);
+		i++;
 	}
-	return (1);
+	return (0);
 }

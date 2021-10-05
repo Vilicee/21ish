@@ -6,13 +6,28 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 13:24:50 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:11:35 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 10:59:53 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "includes/minishell.h"
 
-int	ft_which_quote(char *str, int squote, int dquote, int bquote)
+static int	ft_verify_quote(char *str, int i)
+{
+	char	quote;
+
+	quote = str[i];
+	i++;
+	while (str[i])
+	{
+		if (str[i] == quote && str[i - 1] != '\\')
+			return (0);
+		i++;
+	}
+	return (-1);
+}
+
+int	ft_which_quote(char *str)
 {
 	int	i;
 
@@ -20,18 +35,15 @@ int	ft_which_quote(char *str, int squote, int dquote, int bquote)
 	while (str[i])
 	{
 		if (str[i] == DQUOTE && str[i - 1] != '\\')
-			dquote++;
+			if (ft_verify_quote(str, i) == -1)
+				return (2);
 		if (str[i] == SQU0TE && str[i - 1] != '\\')
-			squote++;
+			if (ft_verify_quote(str, i) == -1)
+				return (1);
 		if (str[i] == BQUOTE && str[i - 1] != '\\')
-			bquote++;
+			if (ft_verify_quote(str, i) == -1)
+				return (3);
 		i++;
 	}
-	if (dquote % 2 != 0)
-		return (2);
-	if (squote % 2 != 0)
-		return (1);
-	if (bquote % 2 != 0)
-		return (3);
 	return (0);
 }

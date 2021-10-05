@@ -6,16 +6,19 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 14:14:10 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:03:35 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/20 14:24:55 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "includes/minishell.h"
 
 static int	ft_check_for_dots(char *str, int i, int count)
 {
 	while (str[i])
 	{
+		if ((ft_strlen(str) == 6) && str[1] == '.' && str[2] == '.'
+			&& str[3] == '/')
+			return (2);
 		if ((ft_is_quote(str[i]) == 0) && str[i] != '.' && str[i] != '\n')
 			return (0);
 		if (str[i] == '.')
@@ -28,11 +31,11 @@ static int	ft_check_for_dots(char *str, int i, int count)
 static void	ft_print_error(char *str, int count)
 {
 	if (count == 0)
-		ft_putstr("21ish: permission denied/no such file or directory: ");
+		ft_putstr("minishell: permission denied/no such file or directory: ");
 	if (count == 3)
-		ft_putstr("21ish: no such file or directory: ");
+		ft_putstr("minishell: no such file or directory: ");
 	if (count == 1)
-		ft_putstr("21ish: permission denied: ");
+		ft_putstr("minishell: permission denied: ");
 	ft_mini_echo(str, '\0');
 }
 
@@ -71,7 +74,7 @@ int	ft_dotdot(char *str, int i, int count)
 	if (count == 1)
 		ft_putstr(".: not enough arguments\n");
 	if (count == 2)
-		ft_putstr("21ish: permission denied: ..\n");
+		ft_printf("minishell: permission denied: %s", str);
 	if (count == 1 || count == 2)
 		return (-1);
 	count = ft_check_for_errors(str, i, 0);

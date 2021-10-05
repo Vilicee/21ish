@@ -6,15 +6,13 @@
 #    By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/08 18:25:08 by wvaara            #+#    #+#              #
-#    Updated: 2021/09/17 17:40:29 by wvaara           ###   ########.fr        #
+#    Updated: 2021/10/05 10:54:58 by wvaara           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
 FT_PRINTF = libftprintf.a
-
-FT_DPRINTF = libftdprintf.a
 
 FLAGS = -Wall -Wextra -Werror
 
@@ -44,7 +42,7 @@ SRCS = ft_putnbr.c ft_putchar.c ft_strlen.c ft_putnbr.c ft_putstr.c \
 
 LIBRARY = $(SRCS:.c=.o)
 
-all: $(NAME) $(FT_PRINTF) $(FT_DPRINTF)
+all: $(NAME) $(FT_PRINTF)
 
 $(NAME): $(SRCS)
 	gcc -c $(FLAGS) $(SRCS) -I $(INCLUDES)
@@ -56,18 +54,13 @@ $(SRCS): $(INCLUDES)libft.h
 $(FT_PRINTF):
 	$(MAKE) -C ft_printf
 
-$(FT_DPRINTF):
-	$(MAKE) -C ft_dprintf
-
 clean:
 	rm -f $(LIBRARY)
 	$(MAKE) -C ft_printf clean
-	$(MAKE) -C ft_dprintf clean
 
 fclean: clean
 	rm -f $(NAME)
 	$(MAKE) -C ft_printf fclean
-	$(MAKE) -C ft_dprintf fclean
 
 re: fclean all
 

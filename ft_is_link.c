@@ -6,13 +6,13 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 12:20:45 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:08:05 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/15 15:07:10 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "includes/minishell.h"
 
-char	*ft_is_link(t_to_ish *data, char **array, char tilde)
+char	*ft_is_link(t_mini *data, char **array, char tilde)
 {
 	char	current[4096];
 

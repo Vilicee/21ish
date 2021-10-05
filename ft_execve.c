@@ -6,11 +6,11 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 13:20:19 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:04:55 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/29 13:25:10 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "includes/minishell.h"
 
 static int	ft_execute(char **array, char *command, char **var, pid_t child)
 {
@@ -22,7 +22,7 @@ static int	ft_execute(char **array, char *command, char **var, pid_t child)
 		if (execve(command, array, var) == -1)
 		{
 			if (array)
-				ft_free_array(array);
+				ft_free_array(&array);
 			if (command)
 				free(command);
 			return (-1);
@@ -34,14 +34,13 @@ static int	ft_execute(char **array, char *command, char **var, pid_t child)
 		while (pid > 0)
 			pid = waitpid(child, &process, 0);
 	}
-	if (array)
-		ft_free_array(array);
+	ft_free_array(&array);
 	if (command)
 		free(command);
 	return (0);
 }
 
-int	ft_execve(char *str, t_to_ish *data, char *command)
+int	ft_execve(char *str, t_mini *data, char *command)
 {
 	char	**array;
 	char	*temp;
@@ -50,10 +49,10 @@ int	ft_execve(char *str, t_to_ish *data, char *command)
 	if (command)
 		data->temp = ft_extract_command_path(data->variables, "PATH",
 				command, data);
-	if (ft_strcmp(data->temp, "") == 0 || data->temp == NULL)
+	if (ft_strcmp(data->temp, "") == 0 || data->temp == NULL
+		|| ft_dotdot(data->temp, 0, 0) == -1)
 	{
-		if (data->temp)
-			free(data->temp);
+		ft_memdel((void *)&data->temp);
 		return (-1);
 	}
 	child = fork();
@@ -61,9 +60,9 @@ int	ft_execve(char *str, t_to_ish *data, char *command)
 	array = ft_strsplit(temp, ' ');
 	free(temp);
 	data->arr_temp = ft_arrdup(array);
-	ft_free_array(array);
+	ft_free_array(&array);
 	array = ft_arr_trim(data->arr_temp);
-	ft_free_array(data->arr_temp);
+	ft_free_array(&data->arr_temp);
 	free(array[0]);
 	array[0] = ft_strdup(data->temp);
 	return (ft_execute(array, data->temp, data->variables, child));

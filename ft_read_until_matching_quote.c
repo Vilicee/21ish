@@ -6,11 +6,11 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 16:37:10 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:09:21 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 11:01:17 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "includes/minishell.h"
 
 static void	ft_prompt(int ret)
 {
@@ -27,7 +27,7 @@ static char	*ft_loop(char *str, char *temp, char *temp2, int ret)
 	while (1)
 	{
 		if (ret == -1)
-			ret = ft_which_quote(str, 0, 0, 0);
+			ret = ft_which_quote(str);
 		ft_prompt(ret);
 		if (temp)
 			free(temp);

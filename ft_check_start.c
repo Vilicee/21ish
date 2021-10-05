@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_start.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 12:04:32 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:02:17 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/02 13:59:07 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "includes/minishell.h"
 
 int	ft_check_start(char *str)
 {

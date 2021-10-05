@@ -6,11 +6,11 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 15:55:47 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:09:53 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/29 11:36:16 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "includes/minishell.h"
 
 static int	ft_which_env(char *variable, char *word)
 {
@@ -19,7 +19,7 @@ static int	ft_which_env(char *variable, char *word)
 
 	temp = ft_strsplit(variable, '=');
 	ret = ft_strcmp(temp[0], word);
-	ft_free_array(temp);
+	ft_free_array(&temp);
 	return (ret);
 }
 
@@ -30,12 +30,6 @@ int	ft_search_env(char *temp, int i, char **variables)
 
 	ii = 0;
 	word = ft_get_next_word(temp, i);
-	while (word[ii])
-	{
-		word[ii] = ft_toupper(word[ii]);
-		ii++;
-	}
-	ii = 0;
 	while (variables[ii])
 	{
 		if (ft_which_env(variables[ii], word) == 0)

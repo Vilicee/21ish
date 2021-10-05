@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_additional.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 12:34:22 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:22:19 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/06/22 11:52:09 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static int	ft_part_three(t_printf *data)
+static int	ft_part_three(t_data *data)
 {
 	while (data->str_len > data->len)
 	{
@@ -33,7 +33,7 @@ static int	ft_part_three(t_printf *data)
 	return (0);
 }
 
-static int	ft_part_two(t_printf *data)
+static int	ft_part_two(t_data *data)
 {
 	if (data->neg == 1)
 		data->len--;
@@ -57,7 +57,7 @@ static int	ft_part_two(t_printf *data)
 	return (ft_part_three(data));
 }
 
-int	ft_print_additional(t_printf *data)
+int	ft_print_additional(t_data *data)
 {
 	if (data->just_dot == 1 && data->d_zero == 1)
 	{

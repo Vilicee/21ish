@@ -6,21 +6,19 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 15:48:48 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:11:27 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/24 17:26:18 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "includes/minishell.h"
 
-static void	ft_free(char *temp, char *word)
+static void	ft_free(char *word, char *temp)
 {
-	if (temp)
-		free(temp);
-	if (word)
-		free(word);
+	ft_memdel((void *)&word);
+	ft_memdel((void *)&temp);
 }
 
-int	ft_which_command(char *str, t_to_ish *data, char *word, char *temp)
+int	ft_which_command(char *str, t_mini *data, char *word, char *temp)
 {
 	temp = ft_strtrim(str);
 	if (ft_is_quote(temp[0]) == 1)
@@ -31,8 +29,6 @@ int	ft_which_command(char *str, t_to_ish *data, char *word, char *temp)
 		exit (1);
 	if (ft_strcmp(word, "echo") == 0)
 		ft_echo(temp, data);
-	else if (ft_strcmp(word, "pwd") == 0 || ft_strcmp(word, "PWD") == 0)
-		ft_pwd(word, data->variables);
 	else if (ft_strcmp(word, "env") == 0)
 		ft_print_array(data->variables);
 	else if (ft_strcmp(word, "setenv") == 0)
@@ -44,6 +40,6 @@ int	ft_which_command(char *str, t_to_ish *data, char *word, char *temp)
 	else
 		if (ft_execve(temp, data, word) == -1)
 			ft_command_not_found(word, data);
-	ft_free(temp, word);
+	ft_free(word, temp);
 	return (0);
 }

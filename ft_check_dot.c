@@ -6,11 +6,11 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 13:53:37 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:01:46 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/16 14:47:30 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "includes/minishell.h"
 
 int	ft_check_dot(char *str)
 {

@@ -6,33 +6,15 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 13:29:39 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:01:53 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/22 13:44:38 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "includes/minishell.h"
 
-static int	ft_find_start(char *str)
+int	ft_check_echo_flag(char *str, int i)
 {
-	int	i;
-
-	i = 4;
-	if (ft_is_quote(str[0]) == 1)
-		i = 6;
-	while (str[i])
-	{
-		if (ft_isspace(str[i]) == 0)
-			return (i);
-		i++;
-	}
-	return (0);
-}
-
-int	ft_check_echo_flag(char *str, int ret)
-{
-	int	i;
-
-	i = ft_find_start(str);
+	i = ft_find_echo_start(str);
 	if (str[i] == '\0')
 		return (2);
 	while (str[i])
@@ -44,9 +26,9 @@ int	ft_check_echo_flag(char *str, int ret)
 				i++;
 				while (str[i] == 'n')
 					i++;
-				if (str[i] != '\n' && str[i] != '\0')
+				if (str[i] != '\n' && str[i] != '\0' && ft_isspace(str[i]) == 1)
 					return (1);
-				else
+				else if (str[i] == '\n' || str[i] == '\0')
 					return (2);
 			}
 			else
@@ -54,5 +36,5 @@ int	ft_check_echo_flag(char *str, int ret)
 		}
 		i++;
 	}
-	return (ret);
+	return (0);
 }

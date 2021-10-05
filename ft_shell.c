@@ -6,19 +6,20 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 14:40:54 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:10:48 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/29 11:49:36 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "includes/minishell.h"
 
-static void	ft_reset_variables(t_to_ish *data)
+static void	ft_reset_variables(t_mini *data)
 {
 	data->quote = ' ';
 	data->exec_fail = '0';
 	data->a_index = 0;
 	data->cd_p = '0';
 	data->cd_l = '0';
+	data->tilde = '0';
 	data->ii = 0;
 	data->index = 0;
 	data->e_skip = 4;
@@ -53,7 +54,7 @@ static int	ft_check_for_errors(char *buf)
 		}
 		if (buf[i] == ';' && buf[i + 1] == ';')
 		{
-			ft_putstr("21ish: parse error near `;;'\n");
+			ft_putstr("minishell: parse error near `;;'\n");
 			return (-1);
 		}
 		i++;
@@ -61,7 +62,7 @@ static int	ft_check_for_errors(char *buf)
 	return (0);
 }
 
-static char	**ft_parser(t_to_ish *data)
+static char	**ft_parser(t_mini *data)
 {
 	char	**ret;
 	char	*temp;
@@ -74,7 +75,7 @@ static char	**ft_parser(t_to_ish *data)
 	if (!temp)
 		return (NULL);
 	if (check == 1)
-		ret = ft_strsplit(temp, ';');
+		ret = ft_adhoc_split(temp, ';', 0, 0);
 	else if (check == 0)
 		ret = ft_strsplit(temp, '\0');
 	else
@@ -83,11 +84,11 @@ static char	**ft_parser(t_to_ish *data)
 	return (ret);
 }
 
-static int	ft_not_empty(char *str)
+static int	ft_not_empty(char *str, int i)
 {
-	int	i;
-
-	i = 0;
+	if (ft_is_quote(str[0]) == 1)
+		if (ft_strlen(str) == 2 || ft_is_quote(str[1]) == 1)
+			return (1);
 	while (str[i])
 	{
 		if (ft_isspace(str[i]) == 0)
@@ -97,7 +98,7 @@ static int	ft_not_empty(char *str)
 	return (1);
 }
 
-int	ft_shell(t_to_ish *data)
+int	ft_shell(t_mini *data)
 {
 	if (ft_check_for_errors(data->buf) == -1)
 		return (-1);
@@ -106,7 +107,7 @@ int	ft_shell(t_to_ish *data)
 	{
 		while (data->words[data->i] != NULL)
 		{
-			if (ft_not_empty(data->words[data->i]) == 0)
+			if (ft_not_empty(data->words[data->i], 0) == 0)
 			{
 				ft_which_command(data->words[data->i], data, NULL, NULL);
 				ft_reset_variables(data);
@@ -115,7 +116,7 @@ int	ft_shell(t_to_ish *data)
 		}
 	}
 	if (data->words)
-		ft_free_array(data->words);
+		ft_free_array(&data->words);
 	data->i = 0;
 	return (-1);
 }

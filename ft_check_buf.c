@@ -6,11 +6,11 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 11:49:48 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:01:04 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/20 14:07:58 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "includes/minishell.h"
 
 static int	ft_only_new_line(char *str)
 {
@@ -31,7 +31,7 @@ static int	ft_only_new_line(char *str)
 	}
 	if (ret == 0 && count > 0)
 	{
-		ft_putstr("21ish: command not found: ");
+		ft_putstr("minishell: command not found: ");
 		while (count-- > 0)
 			write(1, "\\n", 2);
 		write(1, "\n", 1);
@@ -62,7 +62,7 @@ static int	ft_empty(char *str, int i, int ret)
 			i++;
 		}
 		if (ret == -1)
-			ft_printf("21ish: permission denied: %s", str);
+			ft_printf("minishell: permission denied: %s", str);
 	}
 	return (ret);
 }
@@ -95,7 +95,7 @@ static int	ft_only_special_chars(char *str)
 		return (0);
 	else
 	{
-		ft_putstr("21ish: command not found: ");
+		ft_putstr("minishell: command not found: ");
 		ft_mini_echo(str, '\0');
 	}
 	return (-1);
@@ -121,7 +121,7 @@ int	ft_check_buf(char *str, int ret, int len)
 	}
 	if (ret == -1)
 	{
-		ft_putstr("21ish: permission denied:\n");
+		ft_putstr("minishell: permission denied:\n");
 		return (ret);
 	}
 	if (ft_only_special_chars(str) == -1)

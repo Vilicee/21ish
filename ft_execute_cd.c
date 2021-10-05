@@ -6,13 +6,13 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 13:51:40 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:04:31 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/29 11:35:23 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "includes/minishell.h"
 
-static void	ft_free(t_to_ish *data)
+static void	ft_free(t_mini *data)
 {
 	if (data->cd_temp)
 		free(data->cd_temp);
@@ -29,18 +29,25 @@ static void	ft_free(t_to_ish *data)
 	if (data->cd_path)
 		free(data->cd_path);
 	if (data->cd_array)
-		ft_free_array(data->cd_array);
+		ft_free_array(&data->cd_array);
 }
 
-static	void	ft_set_env_vars(t_to_ish *data)
+static	void	ft_set_env_vars(t_mini *data)
 {
+	char	current[4096];
+
 	if (data->old)
 		ft_setenv(data->old, data, 1);
+	if (data->tilde == '1')
+	{
+		getcwd(current, sizeof(current));
+		data->new = (ft_strjoin("setenv PWD ", current));
+	}
 	if (data->new)
 		ft_setenv(data->new, data, 1);
 }
 
-void	ft_execute_cd(t_to_ish *data, int ret)
+void	ft_execute_cd(t_mini *data, int ret)
 {
 	if (ret != -1)
 		ft_set_env_vars(data);

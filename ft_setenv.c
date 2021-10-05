@@ -6,11 +6,11 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 18:06:59 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:10:19 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/29 11:36:48 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "includes/minishell.h"
 
 static int	ft_verify_data(char **array, int i)
 {
@@ -23,7 +23,7 @@ static int	ft_verify_data(char **array, int i)
 			ft_putstr("setenv: too few arguments\n");
 		if (i > 4)
 			ft_putstr("setenv: too many arguments\n");
-		ft_free_array(array);
+		ft_free_array(&array);
 		return (-1);
 	}
 	while (array[1][i])
@@ -31,7 +31,7 @@ static int	ft_verify_data(char **array, int i)
 		if (array[1][i] == '=')
 		{
 			ft_printf("setenv: '=' not allowed in env name\n");
-			ft_free_array(array);
+			ft_free_array(&array);
 			return (-1);
 		}
 		i++;
@@ -39,7 +39,7 @@ static int	ft_verify_data(char **array, int i)
 	return (0);
 }
 
-static void	ft_add_variables(t_to_ish *data, char *new_var, char *value)
+static void	ft_add_variables(t_mini *data, char *new_var, char *value)
 {
 	char	**temp;
 	char	*word;
@@ -48,14 +48,14 @@ static void	ft_add_variables(t_to_ish *data, char *new_var, char *value)
 	len = ft_arrlen(data->variables);
 	word = ft_get_next_word(value, 0);
 	temp = ft_arrdup(data->variables);
-	ft_free_array(data->variables);
+	ft_free_array(&data->variables);
 	data->variables = ft_realloc_array(temp, 1);
 	data->variables[len] = ft_strcjoin(new_var, '=', word);
 	free(word);
-	ft_free_array(temp);
+	ft_free_array(&temp);
 }
 
-static void	ft_mod_variable(int ret, char *type, char *value, t_to_ish *data)
+static void	ft_mod_variable(int ret, char *type, char *value, t_mini *data)
 {
 	char	*word;
 
@@ -83,7 +83,7 @@ static char	*ft_remove_quotes(char *str)
 	return (NULL);
 }
 
-void	ft_setenv(char *str, t_to_ish *data, int overwrite)
+void	ft_setenv(char *str, t_mini *data, int overwrite)
 {
 	data->ret = 0;
 	data->temp = ft_command_parser(str, 0, 0);
@@ -108,5 +108,5 @@ void	ft_setenv(char *str, t_to_ish *data, int overwrite)
 	else
 		if (overwrite == 1 && data->array[2])
 			ft_mod_variable(data->ret, data->array[1], data->array[2], data);
-	ft_free_array(data->array);
+	ft_free_array(&data->array);
 }

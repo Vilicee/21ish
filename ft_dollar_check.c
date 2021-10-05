@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dollar_check.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 12:53:13 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:02:56 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/03 14:29:44 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "includes/minishell.h"
 
 int	ft_dollar_check(char *str, int i, char quote)
 {

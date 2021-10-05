@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_save_input.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 11:55:59 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:09:46 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/07 10:35:06 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "includes/minishell.h"
 
 static char	*ft_read_input(int ret, char *buf, char *str)
 {

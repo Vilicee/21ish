@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_path_parser.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 14:55:50 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:08:58 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/09/06 15:47:16 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "includes/minishell.h"
 
 char	*ft_parse_str(char *str, char c, char quote, int i)
 {
