@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcjoin.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 15:33:11 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/05 16:45:18 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:49:44 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "includes/libft.h"
+#include "libft.h"
 
 char	*ft_strcjoin(char const *s1, char c, char const *s2)
 {

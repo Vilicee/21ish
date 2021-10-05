@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_character.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 12:42:07 by wvaara            #+#    #+#             */
-/*   Updated: 2021/04/19 16:14:15 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:46:15 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 static void	ft_c(t_data *data)
 {

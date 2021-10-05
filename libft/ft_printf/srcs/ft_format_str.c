@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_format_str.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:00:23 by wvaara            #+#    #+#             */
-/*   Updated: 2021/06/22 17:57:58 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:46:52 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 static void	ft_find_specifier_two(const char *format, t_data *data)
 {

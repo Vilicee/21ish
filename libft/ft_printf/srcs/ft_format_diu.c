@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_format_diu.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 16:15:43 by wvaara            #+#    #+#             */
-/*   Updated: 2021/06/22 11:57:29 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:46:42 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 static void	ft_part_two(t_data *data)
 {

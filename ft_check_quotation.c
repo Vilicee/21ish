@@ -6,11 +6,11 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 16:39:19 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/21 17:39:46 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 13:43:11 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "shell.h"
 
 int	ft_check_quotation(char *str, int i, int ret, char c)
 {

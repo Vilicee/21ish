@@ -6,13 +6,13 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 10:57:37 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/24 21:07:52 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 13:55:28 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "shell.h"
 
-static int	ft_else(char **array, t_mini *data, char tilde, int ret)
+static int	ft_else(char **array, t_shell *data, char tilde, int ret)
 {
 	data->env = ft_extract_env_value(data->variables, "PWD");
 	if (data->env)
@@ -26,22 +26,22 @@ static int	ft_else(char **array, t_mini *data, char tilde, int ret)
 	{
 		ret = chdir(array[1]);
 		if (data->stats.st_mode & S_IFLNK)
-			data->new = ft_is_link(data, array, tilde);
+			data->new_pwd = ft_is_link(data, array, tilde);
 		else
-			data->new = ft_strjoin("setenv PWD ", array[1]);
+			data->new_pwd = ft_strjoin("setenv PWD ", array[1]);
 	}
 	else
 	{
 		ret = chdir(data->check);
 		if (data->stats.st_mode & S_IFLNK)
-			data->new = ft_is_link(data, array, tilde);
+			data->new_pwd = ft_is_link(data, array, tilde);
 		else
-			data->new = ft_strjoin("setenv PWD ", data->check);
+			data->new_pwd = ft_strjoin("setenv PWD ", data->check);
 	}
 	return (ret);
 }
 
-int	ft_new_dir(char **array, t_mini *data)
+int	ft_new_dir(char **array, t_shell *data)
 {
 	if (array[1])
 	{
@@ -53,7 +53,7 @@ int	ft_new_dir(char **array, t_mini *data)
 			data->check = ft_strjoin(data->env, ++array[1]);
 			if (data->stats.st_mode & S_IFLNK)
 			{
-				data->new = ft_is_link(data, array, data->tilde);
+				data->new_pwd = ft_is_link(data, array, data->tilde);
 				data->tilde = '0';
 			}
 			array[1]--;

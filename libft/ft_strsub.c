@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 13:42:50 by wvaara            #+#    #+#             */
-/*   Updated: 2021/08/05 19:02:00 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:49:44 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "includes/libft.h"
+#include "libft.h"
 
 char	*ft_strsub(char const *str, unsigned int start, size_t len)
 {

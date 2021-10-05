@@ -6,11 +6,11 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 11:38:12 by wvaara            #+#    #+#             */
-/*   Updated: 2021/02/17 12:50:17 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:49:44 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
 void	*ft_memset(void *str, int c, size_t len)
 {

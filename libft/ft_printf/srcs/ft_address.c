@@ -6,11 +6,11 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 14:50:42 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/07 13:24:37 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:46:00 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 static void	ft_p(t_data *data, void *ptr, int len)
 {

@@ -6,11 +6,11 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/22 13:31:37 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/21 16:28:23 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:49:44 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 
 int	ft_strnequ(char const *s1, char const *s2, size_t len)
 {

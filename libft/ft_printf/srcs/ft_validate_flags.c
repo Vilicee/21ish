@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_validate_flags.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 15:04:26 by wvaara            #+#    #+#             */
-/*   Updated: 2021/04/19 16:40:17 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:48:45 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 static int	ft_skip_flags(const char *format, t_data *data)
 {

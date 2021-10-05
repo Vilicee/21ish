@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dto_binary.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:01:05 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/10 13:40:51 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:44:30 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_dprintf.h"
+#include "ft_dprintf.h"
 
-static void	ft_part_two(t_data *data, char *base_two, int i)
+static void	ft_part_two(t_dprintf *data, char *base_two, int i)
 {
 	while (data->n > 0)
 	{
@@ -35,7 +35,7 @@ static void	ft_part_two(t_data *data, char *base_two, int i)
 		i = 0;
 }
 
-static int	ft_check_size(t_data *data)
+static int	ft_check_size(t_dprintf *data)
 {
 	int	size;
 
@@ -55,7 +55,7 @@ static int	ft_check_size(t_data *data)
 	return (size);
 }
 
-char	*ft_dto_binary(t_data *data)
+char	*ft_dto_binary(t_dprintf *data)
 {
 	char	*base_two;
 	int		i;

@@ -6,11 +6,11 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 13:20:19 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/29 13:25:10 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 13:50:06 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "shell.h"
 
 static int	ft_execute(char **array, char *command, char **var, pid_t child)
 {
@@ -40,7 +40,7 @@ static int	ft_execute(char **array, char *command, char **var, pid_t child)
 	return (0);
 }
 
-int	ft_execve(char *str, t_mini *data, char *command)
+int	ft_execve(char *str, t_shell *data, char *command)
 {
 	char	**array;
 	char	*temp;

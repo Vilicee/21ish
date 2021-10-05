@@ -6,11 +6,11 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/30 20:47:06 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/01 19:10:07 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:45:29 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "libft.h"
 #include <stdlib.h>
 
 char	**ft_arr_trim(char **array)

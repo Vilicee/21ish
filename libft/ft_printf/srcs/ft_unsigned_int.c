@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_unsigned_int.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 13:18:15 by wvaara            #+#    #+#             */
-/*   Updated: 2021/04/19 16:39:52 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:48:45 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 static void	ft_print_int(t_data *data)
 {

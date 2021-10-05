@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_for_negative.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 12:31:57 by wvaara            #+#    #+#             */
-/*   Updated: 2021/04/19 14:35:45 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:46:20 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 void	ft_check_for_negative(t_data *data)
 {

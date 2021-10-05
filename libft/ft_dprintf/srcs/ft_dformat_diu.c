@@ -6,13 +6,13 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 16:15:43 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:16:26 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:35:22 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_dprintf.h"
+#include "ft_dprintf.h"
 
-static void	ft_part_two(t_data *data)
+static void	ft_part_two(t_dprintf *data)
 {
 	if (data->str_len > data->len)
 		data->str_len_xtra = data->str_len;
@@ -39,7 +39,7 @@ static void	ft_part_two(t_data *data)
 	}
 }
 
-void	ft_dformat_diu(t_data *data)
+void	ft_dformat_diu(t_dprintf *data)
 {
 	if (data->x == 1 || data->cap_x == 1 || data->o == 1)
 	{

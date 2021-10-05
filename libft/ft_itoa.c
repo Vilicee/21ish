@@ -6,12 +6,12 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 09:02:03 by wvaara            #+#    #+#             */
-/*   Updated: 2021/07/06 15:43:30 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:49:44 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "includes/libft.h"
+#include "libft.h"
 
 char	*ft_itoa(int n)
 {

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dreset_n.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 12:30:18 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/10 13:43:21 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:43:15 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_dprintf.h"
+#include "ft_dprintf.h"
 
-void	ft_dreset_n(t_data *data)
+void	ft_dreset_n(t_dprintf *data)
 {
 	data->n = 0;
 	data->hn = 0;

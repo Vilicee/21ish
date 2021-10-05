@@ -6,13 +6,13 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 12:34:17 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/29 15:04:24 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 13:43:43 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "shell.h"
 
-void	ft_command_not_found(char *command, t_mini *data)
+void	ft_command_not_found(char *command, t_shell *data)
 {
 	int	len;
 

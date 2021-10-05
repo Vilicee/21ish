@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dhandle_hash.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 15:48:45 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/10 13:51:54 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:36:29 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_dprintf.h"
+#include "ft_dprintf.h"
 
-static void	ft_base_eigth(t_data *data)
+static void	ft_base_eigth(t_dprintf *data)
 {
 	if (data->base == 8)
 	{
@@ -27,7 +27,7 @@ static void	ft_base_eigth(t_data *data)
 	}
 }
 
-void	ft_dhandle_hash(t_data *data)
+void	ft_dhandle_hash(t_dprintf *data)
 {
 	int	extra;
 

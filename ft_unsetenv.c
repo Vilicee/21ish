@@ -6,11 +6,11 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/26 12:20:41 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/29 11:37:04 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 13:59:37 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "shell.h"
 
 static char	**ft_remove_var(char **array, int position, int len)
 {
@@ -36,7 +36,7 @@ static char	**ft_remove_var(char **array, int position, int len)
 	return (temp);
 }
 
-static void	ft_remove_env(int i, t_mini *data, char *var)
+static void	ft_remove_env(int i, t_shell *data, char *var)
 {
 	int		len;
 	char	*word;
@@ -51,7 +51,7 @@ static void	ft_remove_env(int i, t_mini *data, char *var)
 	free(word);
 }
 
-void	ft_unsetenv(char *str, t_mini *data, int ret)
+void	ft_unsetenv(char *str, t_shell *data, int ret)
 {
 	char	**temp;
 	char	*temp2;

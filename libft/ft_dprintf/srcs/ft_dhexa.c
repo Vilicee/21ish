@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dhexa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 10:31:03 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/10 13:53:04 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:37:05 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_dprintf.h"
+#include "ft_dprintf.h"
 
-static void	ft_print_hexa(t_data *data)
+static void	ft_print_hexa(t_dprintf *data)
 {
 	if (ft_dextras(data) == -1)
 	{
@@ -40,7 +40,7 @@ static void	ft_print_hexa(t_data *data)
 	}
 }
 
-static void	ft_i(t_data *data)
+static void	ft_i(t_dprintf *data)
 {
 	if (data->minus == 1)
 	{
@@ -58,7 +58,7 @@ static void	ft_i(t_data *data)
 	}
 }
 
-void	ft_dhexa(t_data *data)
+void	ft_dhexa(t_dprintf *data)
 {
 	ft_dreset_n(data);
 	ft_dsave_hex_arg(data);

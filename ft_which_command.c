@@ -6,11 +6,11 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 15:48:48 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/24 17:26:18 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 13:59:53 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "shell.h"
 
 static void	ft_free(char *word, char *temp)
 {
@@ -18,7 +18,7 @@ static void	ft_free(char *word, char *temp)
 	ft_memdel((void *)&temp);
 }
 
-int	ft_which_command(char *str, t_mini *data, char *word, char *temp)
+int	ft_which_command(char *str, t_shell *data, char *word, char *temp)
 {
 	temp = ft_strtrim(str);
 	if (ft_is_quote(temp[0]) == 1)

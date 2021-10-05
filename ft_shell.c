@@ -6,13 +6,13 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 14:40:54 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/29 11:49:36 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 13:59:01 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "shell.h"
 
-static void	ft_reset_variables(t_mini *data)
+static void	ft_reset_variables(t_shell *data)
 {
 	data->quote = ' ';
 	data->exec_fail = '0';
@@ -30,8 +30,8 @@ static void	ft_reset_variables(t_mini *data)
 	data->temp = NULL;
 	data->check = NULL;
 	data->new_word = NULL;
-	data->old = NULL;
-	data->new = NULL;
+	data->old_pwd = NULL;
+	data->new_pwd = NULL;
 	data->cd_array = NULL;
 	data->cd_temp = NULL;
 }
@@ -62,13 +62,13 @@ static int	ft_check_for_errors(char *buf)
 	return (0);
 }
 
-static char	**ft_parser(t_mini *data)
+static char	**ft_parser(t_shell *data)
 {
 	char	**ret;
 	char	*temp;
 	int		check;
 
-	check = ft_check_semic(data->buf, 0, 0);
+	check = ft_check_semic(data->buf, 0, 0, '0');
 	if (check == -1)
 		return (NULL);
 	temp = ft_strtrim(data->buf);
@@ -98,7 +98,7 @@ static int	ft_not_empty(char *str, int i)
 	return (1);
 }
 
-int	ft_shell(t_mini *data)
+int	ft_shell(t_shell *data)
 {
 	if (ft_check_for_errors(data->buf) == -1)
 		return (-1);

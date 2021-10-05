@@ -6,11 +6,11 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 11:25:37 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/22 12:10:36 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 13:46:28 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "shell.h"
 
 static int	ft_check_for_parse_errors(char *str)
 {
@@ -39,7 +39,7 @@ static int	ft_no_quote(char *str, int i, char quote, char **variables)
 	return (i);
 }
 
-static void	ft_print_echo(char *str, int i, char quote, t_mini *data)
+static void	ft_print_echo(char *str, int i, char quote, t_shell *data)
 {
 	while (str[i])
 	{
@@ -66,7 +66,7 @@ static void	ft_print_echo(char *str, int i, char quote, t_mini *data)
 		write(1, "\n", 1);
 }
 
-void	ft_echo(char *str, t_mini *data)
+void	ft_echo(char *str, t_shell *data)
 {
 	char	*temp;
 	int		i;

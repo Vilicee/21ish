@@ -6,11 +6,11 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 13:16:38 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/22 13:53:39 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 13:46:03 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "shell.h"
 
 static int	ft_almost_white_space(char c)
 {
@@ -48,7 +48,7 @@ static int	ft_skip_flag(char *str, int i, int ii, int count)
 	return (ii);
 }
 
-static int	ft_echo_len(char *str, int i, int flag, t_mini *data)
+static int	ft_echo_len(char *str, int i, int flag, t_shell *data)
 {
 	int	len;
 	int	arg;
@@ -73,7 +73,7 @@ static int	ft_echo_len(char *str, int i, int flag, t_mini *data)
 	return (len);
 }
 
-static void	ft_echo_parser_loop(t_mini *dt, char *str, char c, char *temp)
+static void	ft_echo_parser_loop(t_shell *dt, char *str, char c, char *temp)
 {
 	while (str[dt->e_i])
 	{
@@ -102,7 +102,7 @@ static void	ft_echo_parser_loop(t_mini *dt, char *str, char c, char *temp)
 	temp[dt->index] = '\0';
 }
 
-char	*ft_echo_parser(char *str, int i, int len, t_mini *data)
+char	*ft_echo_parser(char *str, int i, int len, t_shell *data)
 {
 	char	*temp;
 	

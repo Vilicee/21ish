@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dformat_str.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:00:23 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/10 12:07:33 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:35:49 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_dprintf.h"
+#include "ft_dprintf.h"
 
-static void	ft_find_specifier_two(const char *format, t_data *data)
+static void	ft_find_specifier_two(const char *format, t_dprintf *data)
 {
 	if (format[data->i] == 'o')
 	{
@@ -32,7 +32,7 @@ static void	ft_find_specifier_two(const char *format, t_data *data)
 	}
 }
 
-static void	ft_find_specifier(const char *format, t_data *data)
+static void	ft_find_specifier(const char *format, t_dprintf *data)
 {
 	if (format[data->i] == 's')
 		ft_dstring(data);
@@ -60,7 +60,7 @@ static void	ft_find_specifier(const char *format, t_data *data)
 	ft_find_specifier_two(format, data);
 }
 
-static void	ft_save_int(const char *format, t_data *data)
+static void	ft_save_int(const char *format, t_dprintf *data)
 {
 	if (data->dot == 1)
 	{
@@ -78,7 +78,7 @@ static void	ft_save_int(const char *format, t_data *data)
 	data->dot = 0;
 }
 
-static void	ft_print_flag(const char *format, t_data *data)
+static void	ft_print_flag(const char *format, t_dprintf *data)
 {
 	data->i++;
 	data->waste++;
@@ -98,7 +98,7 @@ static void	ft_print_flag(const char *format, t_data *data)
 	ft_dreset_flags(data);
 }
 
-int	ft_dformat_str(const char *format, t_data *data)
+int	ft_dformat_str(const char *format, t_dprintf *data)
 {
 	int	start;
 	int	i;

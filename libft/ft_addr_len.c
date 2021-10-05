@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_addr_len.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 15:04:20 by wvaara            #+#    #+#             */
-/*   Updated: 2021/04/21 11:49:27 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:45:19 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <unistd.h>
-#include "includes/libft.h"
+#include "libft.h"
 
 static int	ft_count_len(size_t nbr)
 {

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dstring.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 12:40:02 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/10 12:13:21 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:44:19 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_dprintf.h"
+#include "ft_dprintf.h"
 
-static void	ft_print_string(t_data *data, char *temp)
+static void	ft_print_string(t_dprintf *data, char *temp)
 {
 	if (data->just_dot == 1)
 		data->len = 0;
@@ -20,7 +20,7 @@ static void	ft_print_string(t_data *data, char *temp)
 		write(data->fd, temp, data->len);
 }
 
-static void	ft_str_space(t_data *data, char *temp)
+static void	ft_str_space(t_dprintf *data, char *temp)
 {
 	if (data->minus == 1)
 		ft_print_string(data, temp);
@@ -38,7 +38,7 @@ static void	ft_str_space(t_data *data, char *temp)
 	data->minus = 0;
 }
 
-void	ft_dstring(t_data *data)
+void	ft_dstring(t_dprintf *data)
 {
 	char	*temp;
 

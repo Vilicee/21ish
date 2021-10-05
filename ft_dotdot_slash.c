@@ -6,13 +6,13 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 16:16:27 by wvaara            #+#    #+#             */
-/*   Updated: 2021/10/05 11:00:31 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:53:46 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "shell.h"
 
-static int	ft_calculate_path(char *str, t_mini *data)
+static int	ft_calculate_path(char *str, t_shell *data)
 {
 	while (str[data->ii] != '\0')
 	{
@@ -38,7 +38,7 @@ static int	ft_calculate_path(char *str, t_mini *data)
 	return (-1);
 }
 
-int	ft_dotdot_slash(char **array, t_mini *data, char *current)
+int	ft_dotdot_slash(char **array, t_shell *data, char *current)
 {
 	int		ret;
 	char	*temp2;
@@ -57,6 +57,6 @@ int	ft_dotdot_slash(char **array, t_mini *data, char *current)
 		free(temp2);
 		ret = ft_calculate_path(array[1], data);
 	}
-	data->new = ft_strjoin("setenv PWD ", data->cd_temp);
+	data->new_pwd = ft_strjoin("setenv PWD ", data->cd_temp);
 	return (chdir(data->cd_temp));
 }

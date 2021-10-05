@@ -6,12 +6,12 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 17:16:33 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/01 17:44:57 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:49:44 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "includes/libft.h"
+#include "libft.h"
 
 char	*ft_strdup(const char *src)
 {

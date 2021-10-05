@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_negative_hex.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 16:58:55 by wvaara            #+#    #+#             */
-/*   Updated: 2021/04/19 16:30:19 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:47:45 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 static void	ft_capital(char *s)
 {

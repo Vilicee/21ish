@@ -6,16 +6,16 @@
 #    By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/06 13:58:33 by wvaara            #+#    #+#              #
-#    Updated: 2021/10/05 10:58:33 by wvaara           ###   ########.fr        #
+#    Updated: 2021/10/05 14:55:38 by wvaara           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = minishell
+NAME = 21sh
 
 FLAGS = -Wall -Wextra -Werror
 
 SRCS = main.c ft_shell.c ft_echo.c ft_read_until_matching_quote.c \
-	ft_save_input.c ft_check_quotation.c ft_which_quote.c ft_check_semic.c \
+	ft_save_input.c ft_check_quotation.c ft_check_semic.c \
 	ft_dollar.c ft_which_command.c ft_search_env.c ft_print_env.c \
 	ft_copy_env.c ft_setenv.c ft_write.c ft_unsetenv.c ft_execve.c \
 	ft_extract_env_value.c ft_extract_command_path.c ft_cd.c ft_dash_check.c \
@@ -43,7 +43,7 @@ $(LIBRARIES):
 	$(MAKE) -C $(LIB_DIR)
 
 $(OBJECTS):
-	gcc -c $(FLAGS) $(SRCS)
+	gcc -c $(FLAGS) -I $(INCLUDES) $(SRCS)
 
 clean:
 	$(MAKE) -C $(LIB_DIR) clean

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_percentage.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 14:44:35 by wvaara            #+#    #+#             */
-/*   Updated: 2021/06/22 11:58:04 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:47:50 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 static void	ft_perc(t_data *data)
 {

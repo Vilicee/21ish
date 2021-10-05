@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_reset_n.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 12:30:18 by wvaara            #+#    #+#             */
-/*   Updated: 2021/04/19 14:37:15 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:48:45 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 void	ft_reset_n(t_data *data)
 {

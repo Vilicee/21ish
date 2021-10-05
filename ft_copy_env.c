@@ -6,11 +6,11 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 17:32:25 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/21 16:31:02 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 13:44:12 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "shell.h"
 
 char	**ft_copy_env(void)
 {
@@ -27,7 +27,7 @@ char	**ft_copy_env(void)
 		while (environ[i])
 		{
 			if (ft_strnequ(environ[i], "SHELL", 5) == 1)
-				copy[i] = ft_strdup("SHELL=minishell");
+				copy[i] = ft_strdup("SHELL=21sh");
 			else
 				copy[i] = ft_strdup(environ[i]);
 			i++;

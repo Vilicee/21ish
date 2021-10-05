@@ -6,13 +6,13 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 12:42:07 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:35:24 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:34:10 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_dprintf.h"
+#include "ft_dprintf.h"
 
-static void	ft_c(t_data *data)
+static void	ft_c(t_dprintf *data)
 {
 	int	temp;
 
@@ -31,7 +31,7 @@ static void	ft_c(t_data *data)
 	data->minus = 0;
 }
 
-void	ft_dcharacter(t_data *data)
+void	ft_dcharacter(t_dprintf *data)
 {
 	if (data->save == 1)
 		ft_c(data);

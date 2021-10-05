@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_int_format.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 12:13:04 by wvaara            #+#    #+#             */
-/*   Updated: 2021/06/22 11:57:51 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:47:33 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 static void	ft_part_two(t_data *data)
 {

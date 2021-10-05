@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dint.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 11:39:44 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/10 13:47:09 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:37:51 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_dprintf.h"
+#include "ft_dprintf.h"
 
-static void	ft_print_int(t_data *data)
+static void	ft_print_int(t_dprintf *data)
 {
 	if (ft_dextras(data) == -1)
 	{
@@ -40,7 +40,7 @@ static void	ft_print_int(t_data *data)
 		ft_putlonglong_fd(data->n, data->fd);
 }
 
-static void	ft_i(t_data *data)
+static void	ft_i(t_dprintf *data)
 {
 	if (data->minus == 1)
 	{
@@ -52,7 +52,7 @@ static void	ft_i(t_data *data)
 		ft_print_int(data);
 }
 
-void	ft_dint(t_data *data)
+void	ft_dint(t_dprintf *data)
 {
 	ft_dreset_n(data);
 	ft_dsave_arg(data);
