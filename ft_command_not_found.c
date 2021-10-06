@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_command_not_found.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
+/*   By: ehelmine <ehelmine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 12:34:17 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:02:31 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/06 15:41:27 by ehelmine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "shell.h"
 
-void	ft_command_not_found(char *command, t_to_ish *data)
+void	ft_command_not_found(char *command, t_shell *data)
 {
 	int	len;
 

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_cd_parser.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
+/*   By: ehelmine <ehelmine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 15:49:21 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 16:58:25 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/06 15:41:27 by ehelmine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "shell.h"
 
 static int	ft_cd_len(char *str, int i)
 {
@@ -36,7 +36,7 @@ static int	ft_cd_len(char *str, int i)
 	return (len);
 }
 
-static int	ft_is_flag(char *str, int i, t_to_ish *data)
+static int	ft_is_flag(char *str, int i, t_shell *data)
 {
 	int	start;
 
@@ -57,7 +57,7 @@ static int	ft_is_flag(char *str, int i, t_to_ish *data)
 	return (i);
 }
 
-char	*ft_cd_parser(char *str, t_to_ish *data, int i)
+char	*ft_cd_parser(char *str, t_shell *data, int i)
 {
 	char	*temp;
 	char	*temp2;

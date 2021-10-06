@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_new_dir.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
+/*   By: ehelmine <ehelmine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 10:57:37 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:08:49 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/06 15:41:27 by ehelmine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "shell.h"
 
-static int	ft_else(char **array, t_to_ish *data, char tilde, int ret)
+static int	ft_else(char **array, t_shell *data, char tilde, int ret)
 {
 	data->env = ft_extract_env_value(data->variables, "PWD");
 	if (data->env)
@@ -41,7 +41,7 @@ static int	ft_else(char **array, t_to_ish *data, char tilde, int ret)
 	return (ret);
 }
 
-int	ft_new_dir(char **array, t_to_ish *data)
+int	ft_new_dir(char **array, t_shell *data)
 {
 	char		tilde;
 

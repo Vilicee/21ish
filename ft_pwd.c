@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pwd.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
+/*   By: ehelmine <ehelmine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 16:04:51 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:09:14 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/06 15:41:27 by ehelmine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "shell.h"
 
 void	ft_pwd(char *str, char **variables)
 {

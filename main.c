@@ -6,13 +6,13 @@
 /*   By: ehelmine <ehelmine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/04 15:59:48 by wvaara            #+#    #+#             */
-/*   Updated: 2021/10/05 11:38:31 by ehelmine         ###   ########.fr       */
+/*   Updated: 2021/10/06 15:46:40 by ehelmine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "shell.h"
 
-static void	ft_initialize(t_to_ish *data)
+static void	ft_initialize(t_shell *data)
 {
 	data->buf = NULL;
 	data->temp = NULL;
@@ -41,32 +41,6 @@ static void	ft_initialize(t_to_ish *data)
 	data->array = NULL;
 }
 
-static void	ft_reset(t_to_ish *data)
-{
-	data->temp = NULL;
-	data->new_word = NULL;
-	data->old = NULL;
-	data->new = NULL;
-	data->words = NULL;
-	data->check = NULL;
-	data->env = NULL;
-	data->cd_path = NULL;
-	data->array = NULL;
-	data->cd_temp = NULL;
-	data->cd_array = NULL;
-	data->flag = 0;
-	data->e_i = 0;
-	data->ii = 0;
-	data->index = 0;
-	data->a_index = 0;
-	data->exec_fail = '0';
-	data->e_skip = 4;
-	data->ret = 0;
-	data->cd_p = '0';
-	data->cd_l = '0';
-	data->quote = ' ';
-}
-
 /*
 ** Called from: main
 ** We check if data->buf is pointing somewhere, if yes, then free
@@ -76,7 +50,7 @@ static void	ft_reset(t_to_ish *data)
 ** If data->variables exist, we get content to data->buf from ft_save_input.
 */
 
-static void	ft_parse_input(t_to_ish *data)
+static void	ft_parse_input(t_shell *data)
 {
 	if (data->buf)
 		free(data->buf);
@@ -100,7 +74,7 @@ static void	ft_parse_input(t_to_ish *data)
 ** If it returns 1: we just go back to main
 */
 
-static void	ft_check_input(t_to_ish *data)
+static void	ft_check_input(t_shell *data)
 {
 	char	*temp;
 
@@ -124,7 +98,7 @@ static void	ft_check_input(t_to_ish *data)
 
 /*
 ** 1. First we get environment variables in ft_copy_env
-** 2. We initialize our t_to_ish data struct variables in ft_initialize
+** 2. We initialize our t_shell data struct variables in ft_initialize
 ** 3. Enter while loop CHANGE (putstr -> write call) and write to output 21sh>
 ** 4. Check if we get SIGINT (ctrl+c), and if yes, we go to ft_ignore
 ** 5. We parse input in ft_parse_input (CHANGE could be ft_get_input or
@@ -141,7 +115,7 @@ static void	ft_check_input(t_to_ish *data)
 
 int	main(void)
 {
-	t_to_ish	data;
+	t_shell	data;
 
 	data.variables = ft_copy_env();
 	ft_initialize(&data);

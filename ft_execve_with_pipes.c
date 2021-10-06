@@ -6,11 +6,11 @@
 /*   By: ehelmine <ehelmine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 15:57:52 by ehelmine          #+#    #+#             */
-/*   Updated: 2021/09/20 17:08:27 by ehelmine         ###   ########.fr       */
+/*   Updated: 2021/10/06 15:48:35 by ehelmine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "shell.h"
 
 /*
 ** Array[0] has executable with path (/bin/ls -> ls)
@@ -18,10 +18,10 @@
 
 int	ft_execute_with_pipes(char **array, char *org_str, char **var, pid_t child)
 {
-	int		process;
-	pid_t	pid;
+//	int		process;
+//	pid_t	pid;
 	char	**pipe_arr;
-	int		fd[2];
+//	int		fd[2];
 
 	pipe_arr = NULL;
 	pipe_arr = ft_strsplit(org_str, '|');

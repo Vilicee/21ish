@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_extract_command_path.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
+/*   By: ehelmine <ehelmine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 14:12:05 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:37:19 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/06 15:45:20 by ehelmine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "shell.h"
 
-char	*ft_verify_rights(struct stat *buf, t_to_ish *data, char *com)
+char	*ft_verify_rights(struct stat *buf, t_shell *data, char *com)
 {
 	if (buf->st_mode & S_IXUSR)
 		return (ft_strdup(com));
@@ -24,7 +24,7 @@ char	*ft_verify_rights(struct stat *buf, t_to_ish *data, char *com)
 	return (NULL);
 }
 
-char	*ft_verify(char **array, struct stat *buf, char *path, t_to_ish *data)
+char	*ft_verify(char **array, struct stat *buf, char *path, t_shell *data)
 {
 	ft_free_array(array);
 	if (buf->st_mode & S_IXUSR)
@@ -38,7 +38,7 @@ char	*ft_verify(char **array, struct stat *buf, char *path, t_to_ish *data)
 	return (NULL);
 }
 
-char	*ft_extract_command_path(char **var, char *wrd, char *com, t_to_ish *dt)
+char	*ft_extract_command_path(char **var, char *wrd, char *com, t_shell *dt)
 {
 	char		*path;
 	char		**array;

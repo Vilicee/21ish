@@ -6,7 +6,7 @@
 #    By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/14 13:28:02 by wvaara            #+#    #+#              #
-#    Updated: 2021/09/16 14:20:10 by wvaara           ###   ########.fr        #
+#    Updated: 2021/10/05 14:45:13 by wvaara           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ OBJECTS = $(addprefix $(OBJ_DIR), $(SRCS:$(SRC_DIR)%.c=%.o))
 LIBFT = $(addprefix $(LIBFT_DIR), libft.a)
 LIBFT_OBJECTS = $(wildcard libft/*.o)
 
-INCLUDES = -I libft
+INCLUDES = -I libft -I includes/
 
 all: $(NAME)
 

@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_dot.c                                     :+:      :+:    :+:   */
+/*   ft_find_echo_start.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ehelmine <ehelmine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/30 13:53:37 by wvaara            #+#    #+#             */
-/*   Updated: 2021/10/06 15:41:27 by ehelmine         ###   ########.fr       */
+/*   Created: 2021/09/22 13:43:01 by wvaara            #+#    #+#             */
+/*   Updated: 2021/10/05 13:53:47 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-int	ft_check_dot(char *str)
+int	ft_find_echo_start(char *str)
 {
-	int	len;
+	int	i;
 
-	len = ft_strlen(str);
-	if (len == 1)
-		if (str[0] == '.')
-			return (1);
-	if (len == 2)
-		if (str[0] == '.' && str[1] == '.')
-			return (2);
-	if (len > 2)
-		if (str[0] == '.' && str[1] == '.' && str[2] == '/')
-			return (3);
+	i = 4;
+	if (ft_is_quote(str[0]) == 1)
+		i = 6;
+	while (str[i])
+	{
+		if (ft_isspace(str[i]) == 0)
+			return (i);
+		i++;
+	}
 	return (0);
 }

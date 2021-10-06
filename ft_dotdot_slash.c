@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dotdot_slash.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
+/*   By: ehelmine <ehelmine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 16:16:27 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:03:23 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/06 15:46:05 by ehelmine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "shell.h"
 
-static int	ft_calculate_path(char *str, t_to_ish *data, int count)
+static int	ft_calculate_path(char *str, t_shell *data)
 {
 	while (str[data->ii] != '\0')
 	{
@@ -38,14 +38,14 @@ static int	ft_calculate_path(char *str, t_to_ish *data, int count)
 	return (-1);
 }
 
-int	ft_dotdot_slash(char **array, t_to_ish *data, char *current)
+int	ft_dotdot_slash(char **array, t_shell *data, char *current)
 {
 	int		ret;
 	char	*temp2;
 
 	temp2 = NULL;
 	data->cd_temp = ft_strdup(current);
-	ret = ft_calculate_path(array[1], data, 0);
+	ret = ft_calculate_path(array[1], data);
 	while (ret != -1)
 	{
 		if (ret == 1)
@@ -55,7 +55,7 @@ int	ft_dotdot_slash(char **array, t_to_ish *data, char *current)
 		free(data->cd_temp);
 		data->cd_temp = ft_strdup(temp2);
 		free(temp2);
-		ret = ft_calculate_path(array[1], data, 0);
+		ret = ft_calculate_path(array[1], data);
 	}
 	data->new = ft_strjoin("setenv PWD ", data->cd_temp);
 	return (chdir(data->cd_temp));

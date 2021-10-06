@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_echo.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
+/*   By: ehelmine <ehelmine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 11:25:37 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:04:13 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/06 15:41:27 by ehelmine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "shell.h"
 
 static int	ft_no_quote(char *str, int i, char quote, char **variables)
 {
@@ -46,7 +46,7 @@ static void	ft_print_echo(char *str, int i, char quote, char **variables)
 	}
 }
 
-void	ft_echo(char *str, t_to_ish *data)
+void	ft_echo(char *str, t_shell *data)
 {
 	char	*temp;
 	int		i;

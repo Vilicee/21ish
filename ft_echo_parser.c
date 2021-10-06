@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_echo_parser.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
+/*   By: ehelmine <ehelmine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 13:16:38 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:03:54 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/06 15:45:20 by ehelmine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "shell.h"
 
 static int	ft_almost_white_space(char c)
 {
@@ -38,7 +38,7 @@ static int	ft_skip_flag(char *str)
 	return (i);
 }
 
-static int	ft_echo_len(char *str, int i, int flag, t_to_ish *data)
+static int	ft_echo_len(char *str, int i, int flag, t_shell *data)
 {
 	int	len;
 	int	arg;
@@ -63,7 +63,7 @@ static int	ft_echo_len(char *str, int i, int flag, t_to_ish *data)
 	return (len);
 }
 
-static void	ft_echo_parser_loop(t_to_ish *dt, char *str, char c, char *temp)
+static void	ft_echo_parser_loop(t_shell *dt, char *str, char c, char *temp)
 {
 	while (str[dt->e_i])
 	{
@@ -92,7 +92,7 @@ static void	ft_echo_parser_loop(t_to_ish *dt, char *str, char c, char *temp)
 	temp[dt->index] = '\0';
 }
 
-char	*ft_echo_parser(char *str, int i, int len, t_to_ish *data)
+char	*ft_echo_parser(char *str, int i, int len, t_shell *data)
 {
 	char	*temp;
 

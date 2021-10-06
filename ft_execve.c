@@ -6,11 +6,11 @@
 /*   By: ehelmine <ehelmine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 13:20:19 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/20 16:05:33 by ehelmine         ###   ########.fr       */
+/*   Updated: 2021/10/06 15:41:27 by ehelmine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "shell.h"
 
 static int	ft_execute(char **array, char *command, char **var, pid_t child)
 {
@@ -41,7 +41,7 @@ static int	ft_execute(char **array, char *command, char **var, pid_t child)
 	return (0);
 }
 
-int	ft_execve(char *str, t_to_ish *data, char *command)
+int	ft_execve(char *str, t_shell *data, char *command)
 {
 	char	**array;
 	char	*temp;

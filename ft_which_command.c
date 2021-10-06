@@ -6,11 +6,11 @@
 /*   By: ehelmine <ehelmine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 15:48:48 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/21 17:54:15 by ehelmine         ###   ########.fr       */
+/*   Updated: 2021/10/06 15:41:27 by ehelmine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "shell.h"
 
 static void	ft_free(char *temp, char *word)
 {
@@ -20,7 +20,7 @@ static void	ft_free(char *temp, char *word)
 		free(word);
 }
 
-int	ft_which_command(char *str, t_to_ish *data, char *word, char *temp)
+int	ft_which_command(char *str, t_shell *data, char *word, char *temp)
 {
 	temp = ft_strtrim(str);
 	if (ft_is_quote(temp[0]) == 1)

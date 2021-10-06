@@ -6,11 +6,11 @@
 /*   By: ehelmine <ehelmine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 11:55:59 by wvaara            #+#    #+#             */
-/*   Updated: 2021/10/04 18:23:57 by ehelmine         ###   ########.fr       */
+/*   Updated: 2021/10/06 15:41:27 by ehelmine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "shell.h"
 
 static char	*ft_read_input(int ret, char *buf, char *str)
 {

@@ -6,17 +6,17 @@
 #    By: ehelmine <ehelmine@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/06 13:58:33 by wvaara            #+#    #+#              #
-#    Updated: 2021/09/20 16:06:30 by ehelmine         ###   ########.fr        #
+#    Updated: 2021/10/06 15:48:07 by ehelmine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = 21ish
+NAME = 21sh
 
 FLAGS = -Wall -Wextra -Werror
 
 SRCS = main.c ft_shell.c ft_echo.c ft_read_until_matching_quote.c \
-	ft_save_input.c ft_check_quotation.c ft_which_quote.c ft_check_semic.c \
-	ft_dollar.c ft_which_command.c ft_search_env.c ft_print_env.c ft_pwd.c \
+	ft_save_input.c ft_check_quotation.c ft_check_semic.c \
+	ft_dollar.c ft_which_command.c ft_search_env.c ft_print_env.c \
 	ft_copy_env.c ft_setenv.c ft_write.c ft_unsetenv.c ft_execve.c \
 	ft_extract_env_value.c ft_extract_command_path.c ft_cd.c ft_dash_check.c \
 	ft_check_path.c ft_execute_cd.c ft_check_dot.c ft_dotdot_slash.c \
@@ -24,13 +24,13 @@ SRCS = main.c ft_shell.c ft_echo.c ft_read_until_matching_quote.c \
 	ft_check_start.c ft_command_not_found.c ft_is_quote.c ft_ignore.c \
 	ft_get_next_command.c ft_dollar_check.c ft_check_echo_flag.c \
 	ft_echo_parser.c ft_command_parser.c ft_cd_parser.c ft_new_dir.c \
-	ft_execve_with_pipes.c
+	ft_adhoc_split.c ft_find_echo_start.c ft_execve_with_pipes.c
 
 OBJECTS = $(SRCS:.c=.o)
 
 INCLUDES = includes/
 
-LIBRARIES = libft/libft.a libft/libftprintf.a libft/libftdprintf.a
+LIBRARIES = libft/libft.a libft/libftprintf.a
 
 LIB_DIR = libft
 
@@ -42,10 +42,8 @@ $(NAME): $(LIBRARIES) $(OBJECTS)
 $(LIBRARIES):
 	$(MAKE) -C $(LIB_DIR)
 
-$(OBJECTS): $(SRCS)
-
-$(SRCS):
-	gcc -c $(FLAGS) $(SRCS)
+$(OBJECTS):
+	gcc -c $(FLAGS) -I $(INCLUDES) $(SRCS)
 
 clean:
 	$(MAKE) -C $(LIB_DIR) clean

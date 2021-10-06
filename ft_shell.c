@@ -6,13 +6,13 @@
 /*   By: ehelmine <ehelmine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 14:40:54 by wvaara            #+#    #+#             */
-/*   Updated: 2021/10/05 16:27:10 by ehelmine         ###   ########.fr       */
+/*   Updated: 2021/10/06 15:41:27 by ehelmine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "shell.h"
 
-static void	ft_reset_variables(t_to_ish *data)
+static void	ft_reset_variables(t_shell *data)
 {
 	data->quote = ' ';
 	data->exec_fail = '0';
@@ -66,7 +66,7 @@ static int	ft_check_for_errors(char *buf)
 	return (0);
 }
 
-static char	**ft_parser(t_to_ish *data)
+static char	**ft_parser(t_shell *data)
 {
 	char	**ret;
 	char	*temp;
@@ -112,7 +112,7 @@ static int	ft_not_empty(char *str)
 **
 */
 
-int	ft_shell(t_to_ish *data)
+int	ft_shell(t_shell *data)
 {
 	if (ft_check_for_errors(data->buf) == -1)
 		return (-1);

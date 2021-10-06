@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_next_command.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
+/*   By: ehelmine <ehelmine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 16:15:01 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:07:39 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/06 15:41:27 by ehelmine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "shell.h"
 
 static int	ft_command_len(char *str, char quote)
 {
@@ -63,7 +63,7 @@ static char	*ft_copy_str(char *str, char *ret, char quote, int i)
 	return (ret);
 }
 
-char	*ft_get_next_command(char *str, int i, char quote, t_to_ish *data)
+char	*ft_get_next_command(char *str, int i, char quote, t_shell *data)
 {
 	char	*ret;
 

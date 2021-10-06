@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_reset.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
+/*   By: ehelmine <ehelmine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 18:33:16 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:09:33 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/06 15:41:27 by ehelmine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/to_ish.h"
+#include "shell.h"
 
-void	ft_reset(t_to_ish *data)
+void	ft_reset(t_shell *data)
 {
 	data->i = 0;
 	while (data->words[data->i] != NULL)
