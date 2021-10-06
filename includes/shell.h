@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shell.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ehelmine <ehelmine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/04 16:11:33 by wvaara            #+#    #+#             */
-/*   Updated: 2021/10/06 15:45:20 by ehelmine         ###   ########.fr       */
+/*   Updated: 2021/10/05 14:55:00 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,13 @@ typedef struct s_shell
 	int				link_flag;
 	int				ret;
 	char			exec_fail;
+	char			tilde;
 	char			quote;
 	char			cd_l;
 	char			cd_p;
 	char			*buf;
-	char			*old;
-	char			*new;
+	char			*old_pwd;
+	char			*new_pwd;
 	char			*cd_path;
 	char			*check;
 	char			*temp;
@@ -66,8 +67,10 @@ char			*ft_extract_command_path(char **variables, char *word,
 char			*ft_read_until_matching_quote(char *str);
 char			**ft_copy_env(void);
 char			**ft_path_parser(char *str, char c);
+char			**ft_adhoc_split(char const *str, char c, int len, int i);
 int				ft_which_command(char *str, t_shell *data, char *temp,
 					char *word);
+int				ft_find_echo_start(char *str);
 int				ft_shell(t_shell *data);
 int				ft_check_echo_flag(char *str, int ret);
 int				ft_dollar_check(char *str, int i, char quote);
@@ -84,8 +87,8 @@ int				ft_which_quote(char *str, int squote, int dquote,
 					int bquote);
 int				ft_dotdot(char *str, int i, int count);
 int				ft_dash_check(char *str);
-int				ft_check_buf(char *str, int len);
-int				ft_check_semic(char *str, int i, int ret);
+int				ft_check_buf(char *str, int ret, int len);
+int				ft_check_semic(char *str, int i, int ret, char check);
 int				ft_search_env(char *temp, int i, char **variables);
 int				ft_write(char *str, int i, char quote);
 void			ft_cd(char *str, t_shell *data, int ret);
@@ -98,8 +101,5 @@ void			ft_echo(char *str, t_shell *data);
 void			ft_setenv(char *str, t_shell *data, int overwrite);
 void			ft_unsetenv(char *str, t_shell *data, int ret);
 void			ft_command_not_found(char *command, t_shell *data);
-
-int				ft_execute_with_pipes(char **array, char *org_str, char **var, pid_t child);
-
 
 #endif
