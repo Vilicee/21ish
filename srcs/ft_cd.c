@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_cd.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ehelmine <ehelmine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/27 14:56:51 by wvaara            #+#    #+#             */
-/*   Updated: 2021/10/06 15:41:27 by ehelmine         ###   ########.fr       */
+/*   Updated: 2021/10/05 13:52:48 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shell.h"
 
-static int	ft_dot_or_dotdot(char **arr, t_shell *data, char *current, int ret)
+static int	ft_dot_or_dotdot(char **array, t_shell *data, char *current, int ret)
 {
-	ret = ft_check_dot(arr[1]);
+	ret = ft_check_dot(array[1]);
 	if (ret == 1)
 		return (1);
 	if (ret == 2)
@@ -31,26 +31,26 @@ static int	ft_dot_or_dotdot(char **arr, t_shell *data, char *current, int ret)
 				}
 				else
 					data->cd_temp = ft_remove_last_word(current, '/');
-				data->new = ft_strjoin("setenv PWD ", data->cd_temp);
+				data->new_pwd = ft_strjoin("setenv PWD ", data->cd_temp);
 				return (chdir(data->cd_temp));
 			}
 		}
 	}
 	if (ret == 3)
-		return (ft_dotdot_slash(arr, data, current));
+		return (ft_dotdot_slash(array, data, current));
 	return (-1);
 }
 
 static int	ft_home(t_shell *data, char *current)
 {
-	data->old = ft_strjoin("setenv OLDPWD ", current);
+	data->old_pwd = ft_strjoin("setenv OLDPWD ", current);
 	data->check = ft_extract_env_value(data->variables, "HOME");
 	if (!data->check)
 	{
-		data->new = ft_strjoin("setenv PWD ", current);
+		data->new_pwd = ft_strjoin("setenv PWD ", current);
 		return (chdir(current));
 	}
-	data->new = ft_strjoin("setenv PWD ", data->check);
+	data->new_pwd = ft_strjoin("setenv PWD ", data->check);
 	return (chdir(data->check));
 }
 
@@ -65,17 +65,17 @@ static int	ft_prev_dir(char **array, t_shell *data, char *current)
 		if (!data->check)
 		{
 			ft_printf("cd: OLDPWD has been unset, returning to home\n");
-			ft_memdel((void *)&data->old);
+			ft_memdel((void *)&data->old_pwd);
 			return (ft_home(data, current));
 		}
 		ft_dollar("$OLDPWD", 0, '\0', data->variables);
 		write(1, "\n", 1);
-		data->new = ft_strjoin("setenv PWD ", data->check);
+		data->new_pwd = ft_strjoin("setenv PWD ", data->check);
 		return (chdir(data->check));
 	}
 	if (ret == 2)
 	{
-		ft_memdel((void *)&data->old);
+		ft_memdel((void *)&data->old_pwd);
 		return (ft_home(data, current));
 	}
 	if (ret == 3)
@@ -98,7 +98,7 @@ void	ft_cd(char *str, t_shell *data, int ret)
 		data->cd_path = ft_strdup(local_curr);
 	if (data->cd_array[1] != NULL)
 	{
-		data->old = ft_strjoin("setenv OLDPWD ", data->cd_path);
+		data->old_pwd = ft_strjoin("setenv OLDPWD ", data->cd_path);
 		if (ft_check_dot(data->cd_array[1]) > 0)
 			ret = ft_dot_or_dotdot(data->cd_array, data, data->cd_path, 0);
 		else if (ft_dash_check(data->cd_array[1]) == 0)
