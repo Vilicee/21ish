@@ -6,7 +6,7 @@
 /*   By: ehelmine <ehelmine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/04 15:59:48 by wvaara            #+#    #+#             */
-/*   Updated: 2021/10/06 15:46:40 by ehelmine         ###   ########.fr       */
+/*   Updated: 2021/10/06 17:21:22 by ehelmine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ static void	ft_initialize(t_shell *data)
 	data->temp = NULL;
 	data->new_word = NULL;
 	data->words = NULL;
-	data->old = NULL;
-	data->new = NULL;
 	data->check = NULL;
 	data->env = NULL;
 	data->cd_temp = NULL;

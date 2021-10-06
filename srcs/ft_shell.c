@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_shell.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ehelmine <ehelmine@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 14:40:54 by wvaara            #+#    #+#             */
-/*   Updated: 2021/10/06 15:41:27 by ehelmine         ###   ########.fr       */
+/*   Updated: 2021/10/05 13:59:01 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void	ft_reset_variables(t_shell *data)
 	data->a_index = 0;
 	data->cd_p = '0';
 	data->cd_l = '0';
+	data->tilde = '0';
 	data->ii = 0;
 	data->index = 0;
 	data->e_skip = 4;
@@ -29,16 +30,11 @@ static void	ft_reset_variables(t_shell *data)
 	data->temp = NULL;
 	data->check = NULL;
 	data->new_word = NULL;
-	data->old = NULL;
-	data->new = NULL;
+	data->old_pwd = NULL;
+	data->new_pwd = NULL;
 	data->cd_array = NULL;
 	data->cd_temp = NULL;
 }
-
-/*
-** 
-**
-*/
 
 static int	ft_check_for_errors(char *buf)
 {
@@ -58,7 +54,7 @@ static int	ft_check_for_errors(char *buf)
 		}
 		if (buf[i] == ';' && buf[i + 1] == ';')
 		{
-			ft_putstr("21ish: parse error near `;;'\n");
+			ft_putstr("minishell: parse error near `;;'\n");
 			return (-1);
 		}
 		i++;
@@ -72,14 +68,14 @@ static char	**ft_parser(t_shell *data)
 	char	*temp;
 	int		check;
 
-	check = ft_check_semic(data->buf, 0, 0);
+	check = ft_check_semic(data->buf, 0, 0, '0');
 	if (check == -1)
 		return (NULL);
 	temp = ft_strtrim(data->buf);
 	if (!temp)
 		return (NULL);
 	if (check == 1)
-		ret = ft_strsplit(temp, ';');
+		ret = ft_adhoc_split(temp, ';', 0, 0);
 	else if (check == 0)
 		ret = ft_strsplit(temp, '\0');
 	else
@@ -88,11 +84,11 @@ static char	**ft_parser(t_shell *data)
 	return (ret);
 }
 
-static int	ft_not_empty(char *str)
+static int	ft_not_empty(char *str, int i)
 {
-	int	i;
-
-	i = 0;
+	if (ft_is_quote(str[0]) == 1)
+		if (ft_strlen(str) == 2 || ft_is_quote(str[1]) == 1)
+			return (1);
 	while (str[i])
 	{
 		if (ft_isspace(str[i]) == 0)
@@ -101,16 +97,6 @@ static int	ft_not_empty(char *str)
 	}
 	return (1);
 }
-
-/*
-**
-** Called from: main
-**
-**
-**
-**
-**
-*/
 
 int	ft_shell(t_shell *data)
 {
@@ -121,7 +107,7 @@ int	ft_shell(t_shell *data)
 	{
 		while (data->words[data->i] != NULL)
 		{
-			if (ft_not_empty(data->words[data->i]) == 0)
+			if (ft_not_empty(data->words[data->i], 0) == 0)
 			{
 				ft_which_command(data->words[data->i], data, NULL, NULL);
 				ft_reset_variables(data);
@@ -130,7 +116,7 @@ int	ft_shell(t_shell *data)
 		}
 	}
 	if (data->words)
-		ft_free_array(data->words);
+		ft_free_array(&data->words);
 	data->i = 0;
 	return (-1);
 }

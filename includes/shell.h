@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shell.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
+/*   By: ehelmine <ehelmine@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/04 16:11:33 by wvaara            #+#    #+#             */
-/*   Updated: 2021/10/05 14:55:00 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/06 17:20:52 by ehelmine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int				ft_which_quote(char *str, int squote, int dquote,
 					int bquote);
 int				ft_dotdot(char *str, int i, int count);
 int				ft_dash_check(char *str);
-int				ft_check_buf(char *str, int ret, int len);
+int				ft_check_buf(char *str, int len);
 int				ft_check_semic(char *str, int i, int ret, char check);
 int				ft_search_env(char *temp, int i, char **variables);
 int				ft_write(char *str, int i, char quote);
