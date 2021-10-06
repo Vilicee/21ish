@@ -6,13 +6,13 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 14:42:18 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:23:33 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:48:45 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
-int	ft_specifiers(const char *format, t_printf *data)
+int	ft_specifiers(const char *format, t_data *data)
 {
 	if (format[data->i] == 'c')
 		return (0);

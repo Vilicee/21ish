@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dhandle_nan_inf.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 15:31:12 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/10 14:09:32 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:36:40 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_dprintf.h"
+#include "ft_dprintf.h"
 
-static void	ft_inf(t_data *data)
+static void	ft_inf(t_dprintf *data)
 {
 	data->len = 3;
 	data->zero = '0';
@@ -36,7 +36,7 @@ static void	ft_inf(t_data *data)
 	data->waste++;
 }
 
-static void	ft_nan(t_data *data)
+static void	ft_nan(t_dprintf *data)
 {
 	data->len = 3;
 	data->zero = '0';
@@ -53,7 +53,7 @@ static void	ft_nan(t_data *data)
 	ft_dreset_n(data);
 }
 
-void	ft_dhandle_nan_inf(t_data *data)
+void	ft_dhandle_nan_inf(t_dprintf *data)
 {
 	if (data->inf == 1)
 		ft_inf(data);

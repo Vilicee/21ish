@@ -6,13 +6,13 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 12:39:36 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:17:03 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:33:19 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_dprintf.h"
+#include "ft_dprintf.h"
 
-int	ft_dadhoc_atoi(const char *str, t_data *data)
+int	ft_dadhoc_atoi(const char *str, t_dprintf *data)
 {
 	int	res;
 

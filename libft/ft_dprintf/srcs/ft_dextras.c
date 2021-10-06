@@ -6,13 +6,13 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 16:19:32 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:16:47 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:34:40 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_dprintf.h"
+#include "ft_dprintf.h"
 
-static int	ft_part_two(t_data *data, int ret)
+static int	ft_part_two(t_dprintf *data, int ret)
 {
 	while (data->str_len > data->len - data->negative)
 	{
@@ -31,7 +31,7 @@ static int	ft_part_two(t_data *data, int ret)
 	return (ret);
 }
 
-int	ft_dextras(t_data *data)
+int	ft_dextras(t_dprintf *data)
 {
 	int	ret;
 

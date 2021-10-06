@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putaddr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 14:49:56 by wvaara            #+#    #+#             */
-/*   Updated: 2021/04/21 12:01:20 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:49:44 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "includes/libft.h"
+#include "libft.h"
 
 static void	ft_puthexa(size_t n)
 {

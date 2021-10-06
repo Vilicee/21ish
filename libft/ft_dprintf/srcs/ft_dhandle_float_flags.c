@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dhandle_float_flags.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:27:01 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/10 14:07:10 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:36:17 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_dprintf.h"
+#include "ft_dprintf.h"
 
-void	ft_dhandle_float_flags(t_data *data)
+void	ft_dhandle_float_flags(t_dprintf *data)
 {
 	int	extra;
 

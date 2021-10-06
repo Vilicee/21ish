@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dint_format.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 12:13:04 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/10 13:38:01 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:37:28 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_dprintf.h"
+#include "ft_dprintf.h"
 
-static void	ft_part_two(t_data *data)
+static void	ft_part_two(t_dprintf *data)
 {
 	if (data->plus == 1 || data->neg == 1)
 		data->xtra--;
@@ -28,7 +28,7 @@ static void	ft_part_two(t_data *data)
 	}
 }
 
-static void	ft_zero_true(t_data *data)
+static void	ft_zero_true(t_dprintf *data)
 {
 	if (data->plus == 1 && data->neg == 0)
 	{
@@ -48,7 +48,7 @@ static void	ft_zero_true(t_data *data)
 	}
 }
 
-static void	ft_xtra(t_data *data)
+static void	ft_xtra(t_dprintf *data)
 {
 	if (data->plus == 1 && data->zero == '0')
 		data->xtra--;
@@ -66,7 +66,7 @@ static void	ft_xtra(t_data *data)
 	}
 }
 
-void	ft_dint_format(t_data *data)
+void	ft_dint_format(t_dprintf *data)
 {
 	if (data->hash == 1 && data->d_zero != 1 && data->f == 0)
 	{

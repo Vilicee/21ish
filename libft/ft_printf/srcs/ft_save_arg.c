@@ -6,13 +6,13 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 12:27:33 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:23:16 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:48:45 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
-static void	ft_case_uns_part_two(t_printf*data)
+static void	ft_case_uns_part_two(t_data *data)
 {
 	if (data->h == 1)
 	{
@@ -39,7 +39,7 @@ static void	ft_case_uns_part_two(t_printf*data)
 	}
 }
 
-static void	ft_case_unsigned(t_printf*data)
+static void	ft_case_unsigned(t_data *data)
 {
 	if (data->hh == 1)
 	{
@@ -61,7 +61,7 @@ static void	ft_case_unsigned(t_printf*data)
 	ft_case_uns_part_two(data);
 }
 
-static void	ft_other_cases_part_two(t_printf*data)
+static void	ft_other_cases_part_two(t_data *data)
 {
 	if (data->ll == 1 || data->l == 1)
 	{
@@ -79,7 +79,7 @@ static void	ft_other_cases_part_two(t_printf*data)
 	}
 }
 
-void	ft_save_arg(t_printf*data)
+void	ft_save_arg(t_data *data)
 {
 	if (data->u == 1)
 		ft_case_unsigned(data);

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dreset_flags.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 12:18:32 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/10 13:44:03 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:42:58 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_dprintf.h"
+#include "ft_dprintf.h"
 
-static void	ft_reset_the_rest(t_data *data)
+static void	ft_reset_the_rest(t_dprintf *data)
 {
 	data->base = 16;
 	data->precision = 0;
@@ -30,7 +30,7 @@ static void	ft_reset_the_rest(t_data *data)
 	data->star = '0';
 }
 
-void	ft_dreset_flags(t_data *data)
+void	ft_dreset_flags(t_dprintf *data)
 {
 	data->h = 0;
 	data->hh = 0;

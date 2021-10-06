@@ -6,13 +6,13 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:01:05 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:23:49 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:48:45 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
-static void	ft_part_two(t_printf *data, char *base_two, int i)
+static void	ft_part_two(t_data *data, char *base_two, int i)
 {
 	while (data->n > 0)
 	{
@@ -35,7 +35,7 @@ static void	ft_part_two(t_printf *data, char *base_two, int i)
 		i = 0;
 }
 
-static int	ft_check_size(t_printf *data)
+static int	ft_check_size(t_data *data)
 {
 	int	size;
 
@@ -55,7 +55,7 @@ static int	ft_check_size(t_printf *data)
 	return (size);
 }
 
-char	*ft_to_binary(t_printf *data)
+char	*ft_to_binary(t_data *data)
 {
 	char	*base_two;
 	int		i;

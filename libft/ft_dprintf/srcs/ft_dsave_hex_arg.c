@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dsave_hex_arg.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 14:32:45 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/10 13:42:00 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:43:50 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_dprintf.h"
+#include "ft_dprintf.h"
 
-static void	ft_part_two(t_data *data)
+static void	ft_part_two(t_dprintf *data)
 {
 	if (data->ll == 1)
 	{
@@ -30,7 +30,7 @@ static void	ft_part_two(t_data *data)
 	}
 }
 
-void	ft_dsave_hex_arg(t_data *data)
+void	ft_dsave_hex_arg(t_dprintf *data)
 {
 	if (data->h == 1)
 	{

@@ -6,13 +6,13 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 12:39:36 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:18:28 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:46:05 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
-int	ft_adhoc_atoi(const char *str, t_printf *data)
+int	ft_adhoc_atoi(const char *str, t_data *data)
 {
 	int	res;
 

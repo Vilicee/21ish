@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dnegative_hex.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 16:58:55 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/10 13:46:38 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:38:11 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_dprintf.h"
+#include "ft_dprintf.h"
 
 static void	ft_capital(char *s)
 {
@@ -44,7 +44,7 @@ static void	ft_lower(char *s)
 		write(1, "f", 1);
 }
 
-static void	ft_binary_to_hexa(char *s, t_data *data)
+static void	ft_binary_to_hexa(char *s, t_dprintf *data)
 {
 	if (s[0] == '0' && s[1] == '0' && s[2] == '0' && s[3] == '0')
 		write(1, "0", 1);
@@ -92,7 +92,7 @@ static void	ft_binary_to_octal(char *s)
 		write(1, "7", 1);
 }
 
-void	ft_dnegative_hex(t_data *data)
+void	ft_dnegative_hex(t_dprintf *data)
 {
 	int		i;
 	int		add;

@@ -6,13 +6,13 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 12:18:32 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:22:53 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:48:45 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
-static void	ft_reset_the_rest(t_printf *data)
+static void	ft_reset_the_rest(t_data *data)
 {
 	data->base = 16;
 	data->precision = 0;
@@ -30,7 +30,7 @@ static void	ft_reset_the_rest(t_printf *data)
 	data->star = '0';
 }
 
-void	ft_reset_flags(t_printf *data)
+void	ft_reset_flags(t_data *data)
 {
 	data->h = 0;
 	data->hh = 0;

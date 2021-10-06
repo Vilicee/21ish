@@ -6,13 +6,13 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:27:01 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:20:25 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:47:02 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
-void	ft_handle_float_flags(t_printf *data)
+void	ft_handle_float_flags(t_data *data)
 {
 	int	extra;
 

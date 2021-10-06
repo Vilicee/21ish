@@ -6,13 +6,13 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 15:04:26 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:24:06 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:48:45 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
-static int	ft_skip_flags(const char *format, t_printf *data)
+static int	ft_skip_flags(const char *format, t_data *data)
 {
 	int	error;
 
@@ -28,7 +28,7 @@ static int	ft_skip_flags(const char *format, t_printf *data)
 	return (error);
 }
 
-static int	ft_possible_flag(const char *format, t_printf *data)
+static int	ft_possible_flag(const char *format, t_data *data)
 {
 	int	ret;
 
@@ -43,7 +43,7 @@ static int	ft_possible_flag(const char *format, t_printf *data)
 	return (ret);
 }
 
-void	ft_validate_flags(const char *format, t_printf *data)
+void	ft_validate_flags(const char *format, t_data *data)
 {
 	int	i;
 

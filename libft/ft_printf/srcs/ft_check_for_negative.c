@@ -6,13 +6,13 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 12:31:57 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:18:56 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:46:20 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
-void	ft_check_for_negative(t_printf *data)
+void	ft_check_for_negative(t_data *data)
 {
 	data->neg = 0;
 	data->save_neg = 0;

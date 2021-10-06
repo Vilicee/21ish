@@ -6,11 +6,11 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 16:58:55 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:21:59 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:47:45 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 static void	ft_capital(char *s)
 {
@@ -44,7 +44,7 @@ static void	ft_lower(char *s)
 		write(1, "f", 1);
 }
 
-static void	ft_binary_to_hexa(char *s, t_printf *data)
+static void	ft_binary_to_hexa(char *s, t_data *data)
 {
 	if (s[0] == '0' && s[1] == '0' && s[2] == '0' && s[3] == '0')
 		write(1, "0", 1);
@@ -92,7 +92,7 @@ static void	ft_binary_to_octal(char *s)
 		write(1, "7", 1);
 }
 
-void	ft_negative_hex(t_printf *data)
+void	ft_negative_hex(t_data *data)
 {
 	int		i;
 	int		add;

@@ -6,13 +6,13 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 15:48:45 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:20:34 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:47:08 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
-static void	ft_base_eigth(t_printf *data)
+static void	ft_base_eigth(t_data *data)
 {
 	if (data->base == 8)
 	{
@@ -27,7 +27,7 @@ static void	ft_base_eigth(t_printf *data)
 	}
 }
 
-void	ft_handle_hash(t_printf *data)
+void	ft_handle_hash(t_data *data)
 {
 	int	extra;
 

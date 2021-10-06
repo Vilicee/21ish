@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dremove_neg.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 15:55:43 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/10 13:38:33 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:42:45 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_dprintf.h"
+#include "ft_dprintf.h"
 
-void	ft_dremove_neg(t_data *data)
+void	ft_dremove_neg(t_dprintf *data)
 {
 	if (data->hn < 0 || data->hn > 32767)
 		data->hn = data->hn * -1;

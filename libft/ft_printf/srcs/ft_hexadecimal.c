@@ -6,13 +6,13 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 13:54:20 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:21:33 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:47:28 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
-void	ft_hexadecimal(t_printf *data, unsigned long long n)
+void	ft_hexadecimal(t_data *data, unsigned long long n)
 {
 	char				*base;
 	int					res;

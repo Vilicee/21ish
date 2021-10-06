@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dvalidate_flags.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wvaara <wvaara@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 15:04:26 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/10 14:00:09 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:44:51 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_dprintf.h"
+#include "ft_dprintf.h"
 
-static int	ft_skip_flags(const char *format, t_data *data)
+static int	ft_skip_flags(const char *format, t_dprintf *data)
 {
 	int	error;
 
@@ -28,7 +28,7 @@ static int	ft_skip_flags(const char *format, t_data *data)
 	return (error);
 }
 
-static int	ft_possible_flag(const char *format, t_data *data)
+static int	ft_possible_flag(const char *format, t_dprintf *data)
 {
 	int	ret;
 
@@ -43,7 +43,7 @@ static int	ft_possible_flag(const char *format, t_data *data)
 	return (ret);
 }
 
-void	ft_dvalidate_flags(const char *format, t_data *data)
+void	ft_dvalidate_flags(const char *format, t_dprintf *data)
 {
 	int	i;
 

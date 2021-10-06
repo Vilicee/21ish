@@ -6,13 +6,13 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:00:23 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:20:05 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:46:52 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
-static void	ft_find_specifier_two(const char *format, t_printf *data)
+static void	ft_find_specifier_two(const char *format, t_data *data)
 {
 	if (format[data->i] == 'o')
 	{
@@ -32,7 +32,7 @@ static void	ft_find_specifier_two(const char *format, t_printf *data)
 	}
 }
 
-static void	ft_find_specifier(const char *format, t_printf *data)
+static void	ft_find_specifier(const char *format, t_data *data)
 {
 	if (format[data->i] == 's')
 		ft_string(data);
@@ -60,7 +60,7 @@ static void	ft_find_specifier(const char *format, t_printf *data)
 	ft_find_specifier_two(format, data);
 }
 
-static void	ft_save_int(const char *format, t_printf *data)
+static void	ft_save_int(const char *format, t_data *data)
 {
 	if (data->dot == 1)
 	{
@@ -78,7 +78,7 @@ static void	ft_save_int(const char *format, t_printf *data)
 	data->dot = 0;
 }
 
-static void	ft_print_flag(const char *format, t_printf *data)
+static void	ft_print_flag(const char *format, t_data *data)
 {
 	data->i++;
 	data->waste++;
@@ -98,7 +98,7 @@ static void	ft_print_flag(const char *format, t_printf *data)
 	ft_reset_flags(data);
 }
 
-int	ft_format_str(const char *format, t_printf *data)
+int	ft_format_str(const char *format, t_data *data)
 {
 	int	start;
 	int	i;

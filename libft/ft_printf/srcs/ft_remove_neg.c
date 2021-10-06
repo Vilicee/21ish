@@ -6,13 +6,13 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 15:55:43 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:22:45 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:48:45 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
-void	ft_remove_neg(t_printf *data)
+void	ft_remove_neg(t_data *data)
 {
 	if (data->hn < 0 || data->hn > 32767)
 		data->hn = data->hn * -1;

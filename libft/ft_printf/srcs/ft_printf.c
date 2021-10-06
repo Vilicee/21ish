@@ -6,13 +6,13 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 12:27:14 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:22:35 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:48:45 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
-static void	ft_initialize_index_two(t_printf *data)
+static void	ft_initialize_index_two(t_data *data)
 {
 	data->x = 0;
 	data->cap_x = 0;
@@ -39,7 +39,7 @@ static void	ft_initialize_index_two(t_printf *data)
 	data->star = '0';
 }
 
-static void	ft_initialize_index(t_printf *data)
+static void	ft_initialize_index(t_data *data)
 {
 	data->i = 0;
 	data->c_count = 0;
@@ -67,7 +67,7 @@ static void	ft_initialize_index(t_printf *data)
 
 int	ft_printf(const char *format, ...)
 {
-	t_printf	data;
+	t_data	data;
 
 	va_start(data.copy, format);
 	ft_initialize_index(&data);

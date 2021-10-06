@@ -6,13 +6,13 @@
 /*   By: wvaara <wvaara@hive.fi>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 12:20:56 by wvaara            #+#    #+#             */
-/*   Updated: 2021/09/17 17:19:56 by wvaara           ###   ########.fr       */
+/*   Updated: 2021/10/05 14:46:46 by wvaara           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
-static void	ft_part_three(t_printf *data)
+static void	ft_part_three(t_data *data)
 {
 	if (data->neg == 1)
 	{
@@ -28,7 +28,7 @@ static void	ft_part_three(t_printf *data)
 	}
 }
 
-static void	ft_part_two(t_printf *data)
+static void	ft_part_two(t_data *data)
 {
 	while (data->xtra > data->str_len_xtra + data->neg)
 	{
@@ -46,7 +46,7 @@ static void	ft_part_two(t_printf *data)
 	}
 }
 
-void	ft_format_float(t_printf *data)
+void	ft_format_float(t_data *data)
 {
 	if (data->plus == 1 && data->inf == 0)
 	{
